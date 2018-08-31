@@ -118,4 +118,13 @@ public class Player {
 		// TODO: replace the following line by the method of class Scores computing the total score
 		return totalScore;
 	}
+	
+	
+	/**
+	 * Gets the number of players
+	 * @return The number of players currently playing the game
+	 */
+	public static int getNumberOfPlayers () {
+		return numberOfPlayers;
+	}
 }
