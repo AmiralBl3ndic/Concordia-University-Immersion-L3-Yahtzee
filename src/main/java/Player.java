@@ -17,7 +17,7 @@ import java.util.Random;
  * It can store a player's name, his total score and his score board
  */
 public class Player {
-	private static List<Player> _players = new ArrayList<Player>();
+	private static ArrayList<Player> _players = new ArrayList<>();
 	
 	private String name;
 	private int totalScore;
