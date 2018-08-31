@@ -7,6 +7,8 @@
 
 package main.java;
 
+import logger.Logger;
+
 import java.util.*;
 import java.util.Random;
 
@@ -31,10 +33,9 @@ public class Player {
 	 * Using this method is discourages since it produces a random name which may not be easy to read and recognize for the players
 	 */
 	public Player () {
-		numberOfPlayers++;
 		
-		if (checkAvailableName("Player " + numberOfPlayers)) {
-			name = "Player " + numberOfPlayers;  // Name based upon the current number of players
+		if (checkAvailableName("Player " + getNumberOfPlayers())) {
+			name = "Player " + getNumberOfPlayers();  // Name based upon the current number of players
 		} else {
 			// Trying to get a random number x that will not be used as a "Player x" for a name
 			Random rd = new Random();
@@ -47,11 +48,7 @@ public class Player {
 		
 		totalScore = 0;
 		
-		// Create the list of players if it does not exist
-		if (_players == null)
-			_players = new ArrayList<Player>();
-		
-		// Adding the player to the list of all players so that he can easily be found
+		Logger.logVerboseDebug("Adding player " + name + " to players list");
 		_players.add(this);
 	}
 	
@@ -64,8 +61,13 @@ public class Player {
 	public Player (String playerName) {
 		totalScore = 0;
 		
+		Logger.logVerboseDebug("Creating a new instance of Player");
+		
 		// Check if passed name is available
 		if (!checkAvailableName(playerName)) {  // If name is not available, generating a random name of the form "Player x"
+			
+			Logger.logVerboseDebug("Name", playerName, "not available, generating a random name instead");
+			
 			// Trying to get a random number x that will not be used as a "Player x" for a name
 			Random rd = new Random();
 			int randomNumber = rd.nextInt(Integer.MAX_VALUE);
@@ -73,14 +75,16 @@ public class Player {
 				randomNumber = rd.nextInt(Integer.MAX_VALUE);
 			
 			name = "Player " + randomNumber;
+			
+			Logger.logVerboseDebug("Name", "Player " + randomNumber, "has been used instead");
 		} else {  // If name is available
 			name = playerName;
+			
+			Logger.logVerboseDebug("Name", playerName, "will be used as the name of the new Player instance");
 		}
 		
-		numberOfPlayers++;
-		
-		if (_players == null)
-			_players = new ArrayList<Player>();
+		Logger.logVerboseDebug("Adding player " + name + " to players list");
+		_players.add(this);
 	}
 	
 	
@@ -89,7 +93,9 @@ public class Player {
 	 * @param newName Name to check
 	 * @return false if the name is not available, true otherwise
 	 */
-	private boolean checkAvailableName (String newName) {
+	public static boolean checkAvailableName (String newName) {
+		Logger.logVerboseDebug("Checking for already existing name (" + newName + ")");
+		
 		// Exploring the list of all players and checking their names
 		for (Player player : _players) {
 			if (player.getName().equals(newName))
@@ -146,7 +152,7 @@ public class Player {
 	 * Use this method as a destructor for the Player class
 	 */
 	public void delete () {
-		totalScore = 0;
+		Logger.logVerboseDebug("Deleting player \"" + name + "\"");
 		
 		_players.removeIf(player -> player == this);
 		// TODO: handle the Scores property
