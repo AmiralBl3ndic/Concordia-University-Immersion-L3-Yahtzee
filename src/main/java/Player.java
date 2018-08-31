@@ -140,4 +140,20 @@ public class Player {
 		// Checks the instance type and the name of the instance if of type Player
 		return obj instanceof Player && ((Player) obj).getName().equals(name);
 	}
+	
+	
+	/**
+	 * Deletes a player by resetting its data and removing it from the list of players
+	 * Use this method as a destructor for the Player class
+	 */
+	public void delete () {
+		totalScore = 0;
+		
+		// Removing player from players list
+		for (Player player : _players)
+			if (this.equals(player))
+				_players.remove(player);
+			
+		numberOfPlayers--;
+	}
 }
