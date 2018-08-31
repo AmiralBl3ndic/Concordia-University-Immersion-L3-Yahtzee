@@ -100,7 +100,7 @@ public class Logger {
 	 */
 	public static void logVerbose (Object... objects) {
 		if (canLogVerbose())
-			_log(objects);
+			_log( objects);
 	}
 	
 	/**
@@ -118,8 +118,10 @@ public class Logger {
 	 * @see LoggingLevel
 	 */
 	public static void logDebug (Object... objects) {
-		if (canLogDebug())
+		if (canLogDebug()){
+			System.out.print("[Debug] -  ");
 			_log(objects);
+		}
 	}
 	
 	/**
@@ -127,7 +129,9 @@ public class Logger {
 	 * @param objects Messages and/or objects to be logged, they will be logged together, separated by spaces and no line breaks
 	 */
 	public static void logVerboseDebug (Object... objects) {
-		if (LogLevel.getLoggingLevel() == LoggingLevel.VERBOSE_DEBUG)
+		if (LogLevel.getLoggingLevel() == LoggingLevel.VERBOSE_DEBUG) {
+			System.out.print("[Debug] -  ");
 			_log(objects);
+		}
 	}
 }
