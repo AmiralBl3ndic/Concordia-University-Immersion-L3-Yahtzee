@@ -15,8 +15,7 @@ import java.util.Random;
  * It can store a player's name, his total score and his score board
  */
 public class Player {
-	private static int numberOfPlayers;  // Class variable to check the number of players
-	private static List<Player> _players;
+	private static List<Player> _players = new ArrayList<Player>();
 	
 	private String name;
 	private int totalScore;
@@ -125,7 +124,7 @@ public class Player {
 	 * @return The number of players currently playing the game
 	 */
 	public static int getNumberOfPlayers () {
-		return numberOfPlayers;
+		return _players.size();
 	}
 	
 	
@@ -149,11 +148,7 @@ public class Player {
 	public void delete () {
 		totalScore = 0;
 		
-		// Removing player from players list
-		for (Player player : _players)
-			if (this.equals(player))
-				_players.remove(player);
-			
-		numberOfPlayers--;
+		_players.removeIf(player -> player == this);
+		// TODO: handle the Scores property
 	}
 }
