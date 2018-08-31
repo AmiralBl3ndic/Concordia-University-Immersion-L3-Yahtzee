@@ -127,4 +127,17 @@ public class Player {
 	public static int getNumberOfPlayers () {
 		return numberOfPlayers;
 	}
+	
+	
+	/**
+	 * Determines if two players are equals
+	 * This method only compares players by their names
+	 * @param obj Player instance to compare
+	 * @return Whether or not the players are equal
+	 */
+	@Override
+	public boolean equals (Object obj) {
+		// Checks the instance type and the name of the instance if of type Player
+		return obj instanceof Player && ((Player) obj).getName().equals(name);
+	}
 }
