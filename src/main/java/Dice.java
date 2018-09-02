@@ -8,6 +8,11 @@ public class Dice {
 	 * @return An integer between 1 (included) and 6 (included)
 	 */
 	public static int roll () {
-		return 0;
+		Random roll = new Random();
+		int dice;
+		
+		dice = roll.nextInt(6)+1;
+	
+		return dice;
 	}
 }
