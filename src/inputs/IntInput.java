@@ -36,6 +36,31 @@ public class IntInput {
 	
 	
 	/**
+	 * Asks the user to type an integer using his keyboard
+	 * @param message Message to display (advertise) the user of the awaited action
+	 * @param min Minimum allowed value (inclusive)
+	 * @param max Maximum allowed value (inclusive)
+	 * @return
+	 */
+	public static int askInt (String message, int min, int max) {
+		int value = min - 1;
+		
+		while (value < min || value > max) {
+			value = askInt(message);
+			
+			if (value < min) {
+				System.out.printf("The value you entered is too small, awaiting for at least %d...\n", min);
+			} else if (value > max) {
+				System.out.printf("The value you entered is too big, awaiting for at most %d...\n", max);
+			}
+		}
+		
+		return value;
+	}
+	
+	
+	
+	/**
 	 * Asks the user to type an integer using his keyboard, and awaiting for a minimum value
 	 * @param message Message to display (advertise) the user of the awaited action
 	 * @param min Minimum allowed value (inclusive)
