@@ -8,6 +8,7 @@
 package main.java;
 
 import logger.Logger;
+import inputs.IntInput;
 
 import java.util.*;
 import java.util.Random;

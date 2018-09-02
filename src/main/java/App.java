@@ -53,20 +53,7 @@ public class App {
 					
 					
 				case 2:
-					System.out.println("Yahtzee can be played in solitary or by a group. The game consists of 13 rounds. \n" +
-						"In each round, you roll the dice and then score the roll in one of 13 categories. \n" +
-						"You must score once in each category -- which means that towards the end of the game you may have to settle for scoring zero in some categories. \n" +
-						"The score is determined by a different rule for each category. \n" +
-						"The object of the game is to maximize your total score (of course :-)\n");
-					
-					System.out.println("Combination : It's working for every side of the die - you multiply the number of the side by the number of every dice which have this value");
-					System.out.println("Brelan : 3 dice are identical - Addition of the 5 dice");
-					System.out.println("Square : 4 dice are identical - Addition of the 5 dice");
-					System.out.println("Full : 3 dice are identical + 2 dice are identical - 20 pts");
-					System.out.println("Small serie : Four dice whose numbers follow each other  - 30 pts");
-					System.out.println("Large serie : The five dice follow each other - 40 pts");
-					System.out.println("Yahtzee : All dice are identical - 50 pts");
-					System.out.println("Luck : no condition\n");
+					diplayRules();
 					
 					System.out.println("Select the action you would like to do :");
 					System.out.println("0- Quit");
@@ -76,5 +63,22 @@ public class App {
 					break;
 			}
 		} while (user_choices != 0);
+	}
+
+	static void diplayRules(){
+		System.out.println("Yahtzee can be played in solitary or by a group. The game consists of 13 rounds. \n" +
+				"In each round, you roll the dice and then score the roll in one of 13 categories. \n" +
+				"You must score once in each category -- which means that towards the end of the game you may have to settle for scoring zero in some categories. \n" +
+				"The score is determined by a different rule for each category. \n" +
+				"The object of the game is to maximize your total score (of course :-)\n");
+
+		System.out.println("Combination : It's working for every side of the die - you multiply the number of the side by the number of every dice which have this value");
+		System.out.println("Brelan : 3 dice are identical - Addition of the 5 dice");
+		System.out.println("Square : 4 dice are identical - Addition of the 5 dice");
+		System.out.println("Full : 3 dice are identical + 2 dice are identical - 20 pts");
+		System.out.println("Small serie : Four dice whose numbers follow each other  - 30 pts");
+		System.out.println("Large serie : The five dice follow each other - 40 pts");
+		System.out.println("Yahtzee : All dice are identical - 50 pts");
+		System.out.println("Luck : no condition\n");
 	}
 }
