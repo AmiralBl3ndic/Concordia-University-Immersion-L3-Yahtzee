@@ -1,13 +1,18 @@
 package main.java;
 
 public class Dice {
-	// TODO: implement method 'roll'
+	
+	private static final int NO_VALUE = -1;
+	
+	private boolean locked = false;
+	private int value = NO_VALUE;
+	
 	
 	/**
 	 * Rolls a dice
 	 * @return An integer between 1 (included) and 6 (included)
 	 */
-	public static int roll () {
-		return 0;
+	public int roll () {
+	
 	}
 }
