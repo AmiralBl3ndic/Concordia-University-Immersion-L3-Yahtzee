@@ -19,6 +19,8 @@ import java.util.Random;
 public class Player {
 	private static ArrayList<Player> _players = new ArrayList<>();
 	
+	private Scores _scores = new Scores();
+	
 	private String name;
 	private int totalScore;
 	
