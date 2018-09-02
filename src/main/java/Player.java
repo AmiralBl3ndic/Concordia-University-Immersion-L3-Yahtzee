@@ -116,6 +116,20 @@ public class Player {
 		return name;
 	}
 	
+	/**
+	 * Ask the player to enter his name
+	 * @return Name of the player
+	 */
+	public String askName () {
+		Scanner scanner = new Scanner(System.in);
+			
+		String name; 
+		
+		System.out.print("Please enter your name : ");
+		name = scanner.nextLine();
+		return name;
+	}
+	
 	
 	/**
 	 * Gets the total score of the player
