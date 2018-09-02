@@ -65,6 +65,10 @@ public class App {
 		} while (user_choices != 0);
 	}
 
+
+	/**
+	 * Displays the rules of the Yahtzee
+	 */
 	static void diplayRules(){
 		System.out.println("Yahtzee can be played in solitary or by a group. The game consists of 13 rounds. \n" +
 				"In each round, you roll the dice and then score the roll in one of 13 categories. \n" +
