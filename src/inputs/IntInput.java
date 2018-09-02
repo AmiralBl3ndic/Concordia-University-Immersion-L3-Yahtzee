@@ -9,6 +9,11 @@ package inputs;
 import java.util.Scanner;
 
 public class IntInput {
+	/**
+	 * Asks the user to type an integer using his keyboard
+	 * @param message Message to display (advertise) the user of the awaited action
+	 * @return The value typed by the user
+	 */
 	public static int askInt (String message) {
 		int value = 0;
 		boolean ok = false;
@@ -25,6 +30,27 @@ public class IntInput {
 				ok = false;
 			}
 		} while (!ok);
+		
+		return value;
+	}
+	
+	
+	/**
+	 * Asks the user to type an integer using his keyboard, and awaiting for a minimum value
+	 * @param message Message to display (advertise) the user of the awaited action
+	 * @param min Minimum allowed value (inclusive)
+	 * @return The value typed by the user
+	 */
+	public static int askIntMin (String message, int min) {
+		int value = min - 1;
+		
+		do {
+			value = askInt(message);
+			
+			if (value < min) {
+				System.out.printf("The value you entered is too small, awaiting for at least %d...\n", min);
+			}
+		} while (value < min);
 		
 		return value;
 	}
