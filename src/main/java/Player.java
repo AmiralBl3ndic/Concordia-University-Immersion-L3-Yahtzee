@@ -111,6 +111,12 @@ public class Player {
 	 * @return Name of the current Player instance
 	 */
 	public String getName () {
+		Scanner scanner = new Scanner(System.in);
+			
+		String name; 
+		
+		System.out.print("Please enter your name : ");
+		name = scanner.nextLine();
 		return name;
 	}
 	
