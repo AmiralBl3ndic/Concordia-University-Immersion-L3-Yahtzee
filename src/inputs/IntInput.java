@@ -54,4 +54,25 @@ public class IntInput {
 		
 		return value;
 	}
+	
+	
+	/**
+	 * Asks the user to type an integer using his keyboard, and awaiting for a maximum value
+	 * @param message Message to display (advertise) the user of the awaited action
+	 * @param max Maximum allowed value (inclusive)
+	 * @return The value typed by the user
+	 */
+	public static int askIntMax (String message, int max) {
+		int value = max + 1;
+		
+		do {
+			value = askInt(message);
+			
+			if (value > max) {
+				System.out.printf("The value you entered is too big, awaiting for at most %d...\n", max);
+			}
+		} while (value > max);
+		
+		return value;
+	}
 }
