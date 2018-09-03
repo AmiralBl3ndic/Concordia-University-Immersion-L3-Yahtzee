@@ -36,8 +36,8 @@ public class App {
 			
 			switch (user_choices) {
 				case PLAY:
-					Logger.log("This section has not been implemented yet");
-					break;
+					Logger.log("Let's play a game!");
+					return;  // Exiting the function to continue the program
 					
 					
 				case RULES:
