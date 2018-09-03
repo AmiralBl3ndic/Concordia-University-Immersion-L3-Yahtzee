@@ -234,21 +234,14 @@ public class Player {
 		
 		System.out.println("Creating a new player\n");
 		
-		String name = "";
+		String name;
 		
 		do {
 			System.out.print("Player's name (minimum 3 characters): ");
 			name = kb.nextLine();
 		} while (name.length() < 3);
 		
-		if (!checkAvailableName(name)) {
-			return false;
-		}
-		
-		// Creating a new instance of Player
-		new Player(name);
-		
-		return true;
+		return createPlayer(name);
 	}
 	
 	
