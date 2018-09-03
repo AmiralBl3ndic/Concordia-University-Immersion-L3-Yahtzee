@@ -8,65 +8,64 @@
 package main.java;
 
 import logger.Logger;
-import inputs.IntInput;
 
 import java.util.*;
 import java.util.Random;
 
 /**
  * Class that represents a player
- * It can store a player's name, his total score and his score board
+ * It can store a player's _name, his total score and his score board
  */
 public class Player {
 	private static ArrayList<Player> _players = new ArrayList<>();
-	private static int currentPlayerIndex = -1;
-	private static Player currentPlayer = null;
+	private static int _currentPlayerIndex = -1;
+	private static Player _currentPlayer = null;
 	
 	private Scores _scores = new Scores();
 	
-	private String name;
+	private String _name;
 	private int totalScore;
 	
 	
 	/**
 	 * Default constructor.
 	 * <br />
-	 * Sets the name of the player to "Player x" where x is the number of players (at least 1).
+	 * Sets the _name of the player to "Player x" where x is the number of players (at least 1).
 	 * <br />
 	 * Sets the total score to 0.
 	 *  <br /><br />
-	 * /!\ Warning: Using this method is discouraged since it produces a random name which may not be easy to read and recognize for the players.
+	 * /!\ Warning: Using this method is discouraged since it produces a random _name which may not be easy to read and recognize for the players.
 	 */
 	public Player () {
 		
 		if (checkAvailableName("Player " + getNumberOfPlayers())) {
-			name = "Player " + getNumberOfPlayers();  // Name based upon the current number of players
+			_name = "Player " + getNumberOfPlayers();  // Name based upon the current number of players
 		} else {
-			// Trying to get a random number x that will not be used as a "Player x" for a name
+			// Trying to get a random number x that will not be used as a "Player x" for a _name
 			Random rd = new Random();
 			int randomNumber = rd.nextInt(Integer.MAX_VALUE);
 			while (!checkAvailableName("Player " + randomNumber))
 				randomNumber = rd.nextInt(Integer.MAX_VALUE);
 			
-			name = "Player " + randomNumber;
+			_name = "Player " + randomNumber;
 		}
 		
 		totalScore = 0;
 		
-		Logger.logVerboseDebug("Adding player " + name + " to players list");
+		Logger.logVerboseDebug("Adding player " + _name + " to players list");
 		_players.add(this);
 		
-		if (currentPlayerIndex == -1) {
-			currentPlayerIndex = 0;
-			currentPlayer = this;
+		if (_currentPlayerIndex == -1) {
+			_currentPlayerIndex = 0;
+			_currentPlayer = this;
 		}
 	}
 	
 	
 	/**
-	 * Constructor by name.
+	 * Constructor by _name.
 	 * <br />
-	 * Sets the name of the player to the passed name.
+	 * Sets the _name of the player to the passed _name.
 	 * @param playerName Name to give to the player
 	 */
 	public Player (String playerName) {
@@ -74,47 +73,47 @@ public class Player {
 		
 		Logger.logVerboseDebug("Creating a new instance of Player");
 		
-		// Check if passed name is available
-		if (!checkAvailableName(playerName)) {  // If name is not available, generating a random name of the form "Player x"
+		// Check if passed _name is available
+		if (!checkAvailableName(playerName)) {  // If _name is not available, generating a random _name of the form "Player x"
 			
-			Logger.logVerboseDebug("Name", playerName, "not available, generating a random name instead");
+			Logger.logVerboseDebug("Name", playerName, "not available, generating a random _name instead");
 			
-			// Trying to get a random number x that will not be used as a "Player x" for a name
+			// Trying to get a random number x that will not be used as a "Player x" for a _name
 			Random rd = new Random();
 			int randomNumber = rd.nextInt(Integer.MAX_VALUE);
 			while (!checkAvailableName("Player " + randomNumber))
 				randomNumber = rd.nextInt(Integer.MAX_VALUE);
 			
-			name = "Player " + randomNumber;
+			_name = "Player " + randomNumber;
 			
 			Logger.logVerboseDebug("Name", "Player " + randomNumber, "has been used instead");
-		} else {  // If name is available
-			name = playerName;
+		} else {  // If _name is available
+			_name = playerName;
 			
-			Logger.logVerboseDebug("Name", playerName, "will be used as the name of the new Player instance");
+			Logger.logVerboseDebug("Name", playerName, "will be used as the _name of the new Player instance");
 		}
 		
-		Logger.logVerboseDebug("Adding player " + name + " to players list");
+		Logger.logVerboseDebug("Adding player " + _name + " to players list");
 		_players.add(this);
 		
-		if (currentPlayerIndex == -1) {
-			currentPlayerIndex = 0;
-			currentPlayer = this;
+		if (_currentPlayerIndex == -1) {
+			_currentPlayerIndex = 0;
+			_currentPlayer = this;
 		}
 	}
 	
 	
 	/**
-	 * Checks whether a given name is available (not already in use by another player).
+	 * Checks whether a given _name is available (not already in use by another player).
 	 * @param newName Name to check
-	 * @return false if the name is not available, true otherwise
+	 * @return false if the _name is not available, true otherwise
 	 */
 	public static boolean checkAvailableName (String newName) {
-		Logger.logVerboseDebug("Checking for already existing name (" + newName + ")");
+		Logger.logVerboseDebug("Checking for already existing _name (" + newName + ")");
 		
 		// Exploring the list of all players and checking their names
 		for (Player player : _players) {
-			if (player.getName().equals(newName))
+			if (player.get_name().equals(newName))
 				return false;
 		}
 		
@@ -123,15 +122,15 @@ public class Player {
 	
 	
 	/**
-	 * Gets the name of the player.
+	 * Gets the _name of the player.
 	 * @return Name of the current Player instance
 	 */
-	public String getName () {
-		return name;
+	public String get_name() {
+		return _name;
 	}
 	
 	/**
-	 * Ask the player to enter his name.
+	 * Ask the player to enter his _name.
 	 * @return Name of the player
 	 */
 	public String askName () {
@@ -139,7 +138,7 @@ public class Player {
 			
 		String name; 
 		
-		System.out.print("Please enter your name : ");
+		System.out.print("Please enter your _name : ");
 		name = scanner.nextLine();
 		return name;
 	}
@@ -173,8 +172,8 @@ public class Player {
 	 */
 	@Override
 	public boolean equals (Object obj) {
-		// Checks the instance type and the name of the instance if of type Player
-		return obj instanceof Player && ((Player) obj).getName().equals(name);
+		// Checks the instance type and the _name of the instance if of type Player
+		return obj instanceof Player && ((Player) obj).get_name().equals(_name);
 	}
 	
 	
@@ -184,11 +183,11 @@ public class Player {
 	 * Use this method as a destructor for the Player class.
 	 */
 	public void delete () {
-		Logger.logVerboseDebug("Deleting player \"" + name + "\"");
+		Logger.logVerboseDebug("Deleting player \"" + _name + "\"");
 		
 		_players.removeIf(player -> player == this);
 		
-		if (!_players.contains(currentPlayer)) {
+		if (!_players.contains(_currentPlayer)) {
 			nextPlayer();
 		}
 	}
@@ -201,8 +200,8 @@ public class Player {
 	 */
 	public static void nextPlayer () {
 		if (_players.size() > 0) {
-			currentPlayerIndex = (currentPlayerIndex + 1) % _players.size();
-			currentPlayer = _players.get(currentPlayerIndex);
+			_currentPlayerIndex = (_currentPlayerIndex + 1) % _players.size();
+			_currentPlayer = _players.get(_currentPlayerIndex);
 		}
 	}
 	
@@ -213,8 +212,8 @@ public class Player {
 	public static void clear () {
 		if (_players.size() > 0) {
 			// To avoid referencing no longer existing objects
-			currentPlayer = null;
-			currentPlayerIndex = -1;
+			_currentPlayer = null;
+			_currentPlayerIndex = -1;
 			
 			// Actually clearing the `Player` ArrayList
 			_players.clear();
@@ -227,6 +226,6 @@ public class Player {
 	 * @return A reference to the current player
 	 */
 	public static Player getCurrent () {
-		return currentPlayer;
+		return _currentPlayer;
 	}
 }

@@ -66,9 +66,9 @@ class PlayerTest {
 	
 	@Test
 	void getName() {
-		assertEquals("Player 1", player1.getName());  // Should generate the player name "Player 1 by default"
-		assertEquals("John Doe", player2.getName());  // Should handle not taken name
-		assertNotEquals("John Doe", player3.getName());  // Should handle taken name
+		assertEquals("Player 1", player1.get_name());  // Should generate the player name "Player 1 by default"
+		assertEquals("John Doe", player2.get_name());  // Should handle not taken name
+		assertNotEquals("John Doe", player3.get_name());  // Should handle taken name
 	}
 	
 	@Ignore
@@ -92,11 +92,11 @@ class PlayerTest {
 		int prevNumberOfPlayers = Player.getNumberOfPlayers();
 		
 		// Ensuring the player exists
-		assertFalse(Player.checkAvailableName(player1.getName()));
+		assertFalse(Player.checkAvailableName(player1.get_name()));
 		
 		// Deleting the player and performing the necessary tests
 		player1.delete();
-		assertTrue(Player.checkAvailableName(player1.getName()));
+		assertTrue(Player.checkAvailableName(player1.get_name()));
 		assertEquals(prevNumberOfPlayers - 1, Player.getNumberOfPlayers());
 	}
 	
