@@ -144,7 +144,7 @@ public class Player {
 	
 	/**
 	 * Gets the total score of the player.
-	 * @return Total score of the current Player instance
+	 * @return Total score of the current <code>Player</code> instance
 	 */
 	public int getTotalScore () {
 		// TODO: replace the following line by the method of class Scores computing the total score
