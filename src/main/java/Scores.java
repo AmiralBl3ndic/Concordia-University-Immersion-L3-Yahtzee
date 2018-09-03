@@ -82,8 +82,6 @@ public class Scores {
 	 * Checks if the combination of faces matches a Three-Of-A-Kind or may match higher combinations that needs at least 3 identical faces
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices can be used for a Three-Of-A-Kind or maybe higher combinations that needs at least 3 identical faces
-	 *
-	 * TODO: make this method private
 	 */
 	public boolean checkThreeOfAKind (int[] faces) {
 		if (faces.length != 6) {
@@ -104,8 +102,6 @@ public class Scores {
 	 * Checks if the combination of faces matches a Four-Of-A-Kind or may match a yahtzee
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices can be used for a Four-Of-A-Kind or maybe a yahtzee
-	 *
-	 * TODO: make this method private
 	 */
 	public boolean checkFourOfAKind (int[] faces) {
 		if (faces.length != 6) {
@@ -126,8 +122,6 @@ public class Scores {
 	 * Checks if the combination of faces matches a Full-House
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices matches a Full-House
-	 *
-	 * TODO: make this method private
 	 */
 	public boolean checkFullHouse (int[] faces) {
 		if (faces.length != 6 || !checkThreeOfAKind(faces)) {
@@ -149,8 +143,6 @@ public class Scores {
 	 * Checks iif the combination of faces matches a Small Straight
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices matches a Small Straight
-	 *
-	 * TODO: make this method private
 	 */
 	public boolean checkSmallStraight (int[] faces) {
 		if (faces.length != 6 || faces[2] < 1 || faces[3] < 1) {
@@ -176,8 +168,6 @@ public class Scores {
 	 * Checks if the combination of faces matches a Large Straight
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices matches a Large Straight
-	 *
-	 * TODO: make this method private
 	 */
 	public boolean checkLargeStraight (int[] faces) {
 		if (faces.length != 6 || faces[1] < 1 || faces[2] < 1 || faces[3] < 1 || faces[4] < 1) {
@@ -192,8 +182,6 @@ public class Scores {
 	 * Checks if the combination of faces matches a Yahtzee
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices matches a Yahtzee
-	 *
-	 * TODO: make this method private
 	 */
 	public boolean checkYahtzee (int[] faces) {
 		for (int face : faces) {
