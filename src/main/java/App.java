@@ -56,7 +56,7 @@ public class App {
 	}
 
 	
-	static void diplayRules (){
+	static void diplayRules () {
 		System.out.println("\n\n========== Yahtzee Rules ==========\n");
 		System.out.println("Yahtzee can be played in solitary or by a group. The game consists of 13 rounds. \n" +
 				"In each round, you roll the dices and then score the roll in one of 13 categories. \n" +
@@ -85,5 +85,13 @@ public class App {
 		System.out.println("Chance: no condition, sum all 5 dices\n");
 		
 		System.out.println("\n\n");
+	}
+	
+	
+	/**
+	 * Method that is called when running the program in a console / terminal
+	 */
+	private static void playConsole () {
+		// TODO: implement game / assemble bricks here
 	}
 }
