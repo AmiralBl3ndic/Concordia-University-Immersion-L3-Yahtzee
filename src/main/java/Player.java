@@ -236,6 +236,7 @@ public class Player {
 		
 		String name;
 		
+		// Looping while the typed name does is not at least 3 characters long
 		do {
 			System.out.print("Player's name (minimum 3 characters): ");
 			name = kb.nextLine();
@@ -246,10 +247,12 @@ public class Player {
 	
 	
 	public static boolean createPlayer (String name) {
-		if (!checkAvailableName(name)) {
+		// Checking the length and the availability of the name
+		if (name.length() < 3 || !checkAvailableName(name)) {
 			return false;
 		}
 		
+		// Actually creating the new Player
 		new Player(name);
 		
 		return true;
