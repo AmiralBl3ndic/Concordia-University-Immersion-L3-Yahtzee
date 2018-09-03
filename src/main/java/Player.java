@@ -133,7 +133,7 @@ public class Player {
 			
 		String name; 
 		
-		System.out.print("Please enter your _name : ");
+		System.out.print("Please enter your name : ");
 		name = scanner.nextLine();
 		return name;
 	}
