@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class App {
 	public static void main(final String[] args) {
-		displayStartMessage();
+		playConsole();
 	}
 	
 	
-	public static void displayStartMessage() {
+	public static void startMenu() {
 		final int CHOICE_UNSET = -1;
 		final int QUIT = 0, PLAY = 1, RULES = 2;
 		
@@ -26,6 +26,7 @@ public class App {
 		
 		// Looping through user choices so that he can read the rules before playing
 		do {
+			
 			user_choices = IntInput.askInt(
 				"Select the action you would like to do:\n" +
 				"\t0 - Quit\n" +
@@ -92,6 +93,8 @@ public class App {
 	 * Method that is called when running the program in a console / terminal
 	 */
 	private static void playConsole () {
+		startMenu();
+		
 		// TODO: implement game / assemble bricks here
 	}
 }
