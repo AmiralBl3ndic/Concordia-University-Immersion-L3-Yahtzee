@@ -15,10 +15,10 @@ public class Dice {
 	 * @return An integer between 1 and 6 (both inclusive)
 	 */
 	public int roll () {
-		Random roll = new Random();
+		if (!locked) {
+			value = (new Random().nextInt(6)) + 1;
+		}
 		
-		value = roll.nextInt(6)+1;
-	
 		return value;
 	}
 	
