@@ -28,11 +28,13 @@ public class Player {
 	
 	
 	/**
-	 * Default constructor
-	 * Sets the name of the player to "Player x" where x is the number of players (at least 1)
-	 * Sets the total score to 0
-	 *
-	 * Using this method is discourages since it produces a random name which may not be easy to read and recognize for the players
+	 * Default constructor.
+	 * <br />
+	 * Sets the name of the player to "Player x" where x is the number of players (at least 1).
+	 * <br />
+	 * Sets the total score to 0.
+	 *  <br /><br />
+	 * /!\ Warning: Using this method is discouraged since it produces a random name which may not be easy to read and recognize for the players.
 	 */
 	public Player () {
 		
@@ -60,8 +62,9 @@ public class Player {
 	
 	
 	/**
-	 * Constructor by name
-	 * Sets the name of the player to the passed name
+	 * Constructor by name.
+	 * <br />
+	 * Sets the name of the player to the passed name.
 	 * @param playerName Name to give to the player
 	 */
 	public Player (String playerName) {
@@ -99,7 +102,7 @@ public class Player {
 	
 	
 	/**
-	 * Checks whether a given name is available (not already in use by another player)
+	 * Checks whether a given name is available (not already in use by another player).
 	 * @param newName Name to check
 	 * @return false if the name is not available, true otherwise
 	 */
@@ -117,7 +120,7 @@ public class Player {
 	
 	
 	/**
-	 * Gets the name of the player
+	 * Gets the name of the player.
 	 * @return Name of the current Player instance
 	 */
 	public String getName () {
@@ -125,7 +128,7 @@ public class Player {
 	}
 	
 	/**
-	 * Ask the player to enter his name
+	 * Ask the player to enter his name.
 	 * @return Name of the player
 	 */
 	public String askName () {
@@ -140,7 +143,7 @@ public class Player {
 	
 	
 	/**
-	 * Gets the total score of the player
+	 * Gets the total score of the player.
 	 * @return Total score of the current Player instance
 	 */
 	public int getTotalScore () {
@@ -150,7 +153,7 @@ public class Player {
 	
 	
 	/**
-	 * Gets the number of players
+	 * Gets the number of players.
 	 * @return The number of players currently playing the game
 	 */
 	public static int getNumberOfPlayers () {
@@ -159,8 +162,9 @@ public class Player {
 	
 	
 	/**
-	 * Determines if two players are equals
-	 * This method only compares players by their names
+	 * Determines if two players are equals.
+	 * <br />
+	 * This method only compares players by their names.
 	 * @param obj Player instance to compare
 	 * @return Whether or not the players are equal
 	 */
@@ -172,8 +176,9 @@ public class Player {
 	
 	
 	/**
-	 * Deletes a player by resetting its data and removing it from the list of players
-	 * Use this method as a destructor for the Player class
+	 * Deletes a player by resetting its data and removing it from the list of players.
+	 * <br />
+	 * Use this method as a destructor for the Player class.
 	 */
 	public void delete () {
 		Logger.logVerboseDebug("Deleting player \"" + name + "\"");
