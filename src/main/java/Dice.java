@@ -12,7 +12,7 @@ public class Dice {
 	
 	/**
 	 * Rolls a dice
-	 * @return An integer between 1 (included) and 6 (included)
+	 * @return An integer between 1 and 6 (both inclusive)
 	 */
 	public int roll () {
 		Random roll = new Random();
