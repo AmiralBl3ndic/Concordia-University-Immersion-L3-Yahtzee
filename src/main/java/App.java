@@ -47,6 +47,7 @@ public class App {
 					
 				case QUIT:
 					Logger.log("Goodbye!");
+					System.exit(0);  // Terminating the process (= quitting the program)
 					break;
 					
 					
