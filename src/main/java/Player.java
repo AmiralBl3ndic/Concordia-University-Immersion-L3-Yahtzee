@@ -7,11 +7,12 @@
 
 package main.java;
 
-import logger.Logger;
 import inputs.IntInput;
+import logger.Logger;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Class that represents a player
@@ -24,7 +25,14 @@ public class Player {
 	
 	private String name;
 	private int totalScore;
-	
+	private Dice[] dice =  {
+			new Dice(),
+			new Dice(),
+			new Dice(),
+			new Dice(),
+			new Dice()
+	};
+
 	// TODO: create a Scores class (representing a score sheet for each player) and add an instance here as an instance variable
 	
 	
@@ -173,5 +181,43 @@ public class Player {
 		
 		_players.removeIf(player -> player == this);
 		// TODO: handle the Scores property
+	}
+
+
+	public Dice[] rollDice(Dice[] dices){
+		final int DICE_5 = 5;
+		for (int i = 0; i <= DICE_5; i++) {
+			dices[i].roll();
+		}
+		return dices;
+	}
+
+	public void lockDice(Dice[] dices){
+		final int DICE_1 = 1;
+		final int DICE_2 = 2;
+		final int DICE_3 = 3;
+		final int DICE_4 = 4;
+		final int DICE_5 = 5;
+
+		int userDiceChoice;
+		userDiceChoice = IntInput.askInt("Choose the dices you wanna keep: ", DICE_1, DICE_5);
+		switch (userDiceChoice){
+			case DICE_1 :
+				dices[DICE_1].lock();
+				break;
+			case DICE_2 :
+				dices[DICE_2].lock();
+				break;
+			case DICE_3 :
+				dices[DICE_3].lock();
+				break;
+			case DICE_4 :
+				dices[DICE_4].lock();
+			case DICE_5 :
+				dices[DICE_5].lock();
+				break;
+
+				default :
+		}
 	}
 }
