@@ -62,4 +62,13 @@ public class Dice {
 	public boolean isLocked () {
 		return locked;
 	}
+	
+	
+	/**
+	 * Gets the value of the <code>Dice</code> instance
+	 * @return
+	 */
+	public int getValue () {
+		return value;
+	}
 }
