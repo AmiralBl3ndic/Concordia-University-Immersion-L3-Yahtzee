@@ -22,7 +22,7 @@ public class Scores {
 		"Threes",
 		"Fours",
 		"Fives",
-		"Sixs"
+		"Sixes"
 	};
 	
 	private int[] combinations = { AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE };
@@ -42,7 +42,7 @@ public class Scores {
 	public int getThrees () { return simples[2]; }
 	public int getFours () { return simples[3]; }
 	public int getFives () { return simples[4]; }
-	public int getSixs () { return simples[5]; }
+	public int getSixes () { return simples[5]; }
 	public int getThreeOfAKind () { return combinations[0]; }
 	public int getFullHouse () { return combinations[1]; }
 	public int getFourOfAKind () { return combinations[2]; }
