@@ -226,7 +226,7 @@ public class Player {
 	 * Get a reference to the current player
 	 * @return A reference to the current player
 	 */
-	public static Player getCurrentPlayer () {
+	public static Player getCurrent () {
 		return currentPlayer;
 	}
 }
