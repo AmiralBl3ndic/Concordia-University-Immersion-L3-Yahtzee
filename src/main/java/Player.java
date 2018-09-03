@@ -25,8 +25,6 @@ public class Player {
 	private String name;
 	private int totalScore;
 	
-	// TODO: create a Scores class (representing a score sheet for each player) and add an instance here as an instance variable
-	
 	
 	/**
 	 * Default constructor
