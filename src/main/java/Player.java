@@ -187,7 +187,10 @@ public class Player {
 		Logger.logVerboseDebug("Deleting player \"" + name + "\"");
 		
 		_players.removeIf(player -> player == this);
-		// TODO: handle the Scores property
+		
+		if (!_players.contains(currentPlayer)) {
+			nextPlayer();
+		}
 	}
 	
 	
