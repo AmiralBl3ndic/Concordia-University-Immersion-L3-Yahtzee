@@ -36,7 +36,7 @@ public class Player {
 	 *  <br /><br />
 	 * /!\ Warning: Using this method is discouraged since it produces a random _name which may not be easy to read and recognize for the players.
 	 */
-	public Player () {
+	private Player () {
 		
 		if (checkAvailableName("Player " + getNumberOfPlayers())) {
 			_name = "Player " + getNumberOfPlayers();  // Name based upon the current number of players
@@ -68,7 +68,7 @@ public class Player {
 	 * Sets the _name of the player to the passed _name.
 	 * @param playerName Name to give to the player
 	 */
-	public Player (String playerName) {
+	private Player (String playerName) {
 		totalScore = 0;
 		
 		Logger.logVerboseDebug("Creating a new instance of Player");
