@@ -186,4 +186,14 @@ public class Player {
 		_players.removeIf(player -> player == this);
 		// TODO: handle the Scores property
 	}
+	
+	
+	/**
+	 * Sets the current player to the next player in the list.
+	 * <br />
+	 * If the current player is the last player in the list, it will set the first player as the active player.
+	 */
+	public static void nextPlayer () {
+		currentPlayerIndex = (currentPlayerIndex + 1) % _players.size();
+	}
 }
