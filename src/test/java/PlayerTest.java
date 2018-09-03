@@ -104,4 +104,16 @@ class PlayerTest {
 	void checkAvailableName() {
 		assertFalse(Player.checkAvailableName("John Doe"), "'John Doe' should not be available as a name (since there is already an existing player with that name)");
 	}
+	
+	
+	@Test
+	void clear () {
+		if (Player.getNumberOfPlayers() <= 0)
+			fail("Unable to test the clear() method with no players stored");
+		
+		// Actually clearing the players
+		Player.clear();
+		
+		assertEquals(Player.getNumberOfPlayers(), 0, "The number of players should be 0");
+	}
 }
