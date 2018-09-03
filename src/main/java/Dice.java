@@ -38,6 +38,6 @@ public class Dice {
 	 * When a dice is locked, it won't roll even if the `roll` method is called. Calling the `unlock` method will unlock the dice
 	 */
 	public void unlock () {
-	
+		locked = false;
 	}
 }
