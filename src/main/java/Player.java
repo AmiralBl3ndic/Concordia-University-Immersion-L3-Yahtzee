@@ -24,7 +24,6 @@ public class Player {
 	private Scores _scores = new Scores();
 	
 	private String _name;
-	private int totalScore;
 	
 	
 	/**
@@ -50,8 +49,6 @@ public class Player {
 			_name = "Player " + randomNumber;
 		}
 		
-		totalScore = 0;
-		
 		Logger.logVerboseDebug("Adding player " + _name + " to players list");
 		_players.add(this);
 		
@@ -69,8 +66,6 @@ public class Player {
 	 * @param playerName Name to give to the player
 	 */
 	private Player (String playerName) {
-		totalScore = 0;
-		
 		Logger.logVerboseDebug("Creating a new instance of Player");
 		
 		// Check if passed _name is available
@@ -150,7 +145,7 @@ public class Player {
 	 */
 	public int getTotalScore () {
 		// TODO: replace the following line by the method of class Scores computing the total score
-		return totalScore;
+		return 0;
 	}
 	
 	
