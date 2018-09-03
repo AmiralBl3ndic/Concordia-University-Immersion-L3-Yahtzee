@@ -223,4 +223,31 @@ public class Player {
 	public static Player getCurrent () {
 		return _currentPlayer;
 	}
+	
+	
+	/**
+	 * Pseudo-constructor to allow easier use of static class
+	 * @return Whether or not the new Player has been registered
+	 */
+	public static boolean createPlayer () {
+		Scanner kb = new Scanner(System.in);
+		
+		System.out.println("Creating a new player\n");
+		
+		String name = "";
+		
+		do {
+			System.out.print("Player's name (minimum 3 characters): ");
+			name = kb.nextLine();
+		} while (name.length() < 3);
+		
+		if (!checkAvailableName(name)) {
+			return false;
+		}
+		
+		// Creating a new instance of Player
+		new Player(name);
+		
+		return true;
+	}
 }
