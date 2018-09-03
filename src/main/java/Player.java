@@ -250,4 +250,15 @@ public class Player {
 		
 		return true;
 	}
+	
+	
+	public static boolean createPlayer (String name) {
+		if (!checkAvailableName(name)) {
+			return false;
+		}
+		
+		new Player(name);
+		
+		return true;
+	}
 }
