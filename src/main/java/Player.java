@@ -205,4 +205,19 @@ public class Player {
 			currentPlayer = _players.get(currentPlayerIndex);
 		}
 	}
+	
+	
+	/**
+	 * Deletes all the players
+	 */
+	public static void clear () {
+		if (_players.size() > 0) {
+			// To avoid referencing no longer existing objects
+			currentPlayer = null;
+			currentPlayerIndex = -1;
+			
+			// Actually clearing the `Player` ArrayList
+			_players.clear();
+		}
+	}
 }
