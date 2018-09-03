@@ -43,6 +43,15 @@ public class Dice {
 	
 	
 	/**
+	 * Toggles the locked state. <br />
+	 * If the state is `locked`, it will toggle to `unlocked`
+	 */
+	public void toggleLock () {
+		locked = !locked;
+	}
+	
+	
+	/**
 	 * Allows to know whether or not the instance is in a locked state
 	 * @return Whether or not the instance is in a locked state
 	 */
