@@ -220,4 +220,13 @@ public class Player {
 			_players.clear();
 		}
 	}
+	
+	
+	/**
+	 * Get a reference to the current player
+	 * @return A reference to the current player
+	 */
+	public static Player getCurrentPlayer () {
+		return currentPlayer;
+	}
 }
