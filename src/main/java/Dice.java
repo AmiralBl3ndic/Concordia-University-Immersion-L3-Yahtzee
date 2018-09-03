@@ -12,13 +12,54 @@ public class Dice {
 	
 	/**
 	 * Rolls a dice
-	 * @return An integer between 1 (included) and 6 (included)
+	 * @return An integer between 1 and 6 (both inclusive)
 	 */
 	public int roll () {
-		Random roll = new Random();
+		if (!locked) {
+			value = (new Random().nextInt(6)) + 1;
+		}
 		
-		value = roll.nextInt(6)+1;
-	
 		return value;
+	}
+	
+	
+	/**
+	 * Locks the dice.
+	 * <br />
+	 * Calling this method will prevent the dice from being rolled.
+	 * <br />
+	 * When a dice is locked using this method, calling the roll() method won't roll the dice and it will keep its value until unlocked.
+	 */
+	public void lock () {
+		locked = true;
+	}
+	
+	
+	/**
+	 * Unlocks the dice.
+	 * <br />
+	 * When a dice is locked, it won't roll even if the roll() method is called. Calling the unlock method will unlock the dice.
+	 */
+	public void unlock () {
+		locked = false;
+	}
+	
+	
+	/**
+	 * Toggles the locked state.
+	 * <br />
+	 * If the state is`locked, it will toggle to unlocked.
+	 */
+	public void toggleLock () {
+		locked = !locked;
+	}
+	
+	
+	/**
+	 * Allows to know whether or not the instance is in a locked state.
+	 * @return Whether or not the instance is in a locked state
+	 */
+	public boolean isLocked () {
+		return locked;
 	}
 }

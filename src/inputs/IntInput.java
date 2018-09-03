@@ -8,7 +8,7 @@ package inputs;
 
 import java.util.Scanner;
 
-public class IntInput {
+public final class IntInput {
 	/**
 	 * Asks the user to type an integer using his keyboard
 	 * @param message Message to display (advertise) the user of the awaited action

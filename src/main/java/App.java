@@ -1,88 +1,100 @@
 package main.java;
 
 import logger.Logger;
+import inputs.IntInput;
 
 import java.util.Scanner;
 
 public class App {
 	public static void main(final String[] args) {
-		displayStartMessage();
+		playConsole();
 	}
 	
 	
-	public static void displayStartMessage() {
+	public static void startMenu() {
 		final int CHOICE_UNSET = -1;
 		final int QUIT = 0, PLAY = 1, RULES = 2;
 		
 		Scanner sc = new Scanner(System.in);
 		
-		
-		
 		int user_choices = CHOICE_UNSET;
 		
-		while (user_choices != QUIT && user_choices != PLAY && user_choices != RULES) {
-			try {
-				System.out.println("------------------------------------");
-				System.out.println("--------------- YAHTZEE ------------");
-				System.out.println("------------------------------------");
-				
-				System.out.println("Select the action you would like to do :");
-				System.out.println("0- Quit");
-				System.out.println("1- Play");
-				System.out.println("2- Check Yathzee rules");
-				
-				user_choices = sc.nextInt();
-			} catch (Exception ignored) {
-				System.out.println("Choice not recognized, please try again");
-				
-				sc.nextLine();  // To avoid being stuck in an infinite loop
-			}
-		}
+		System.out.println("------------------------------------");
+		System.out.println("--------------- YAHTZEE ------------");
+		System.out.println("------------------------------------");
 		
 		
-		
+		// Looping through user choices so that he can read the rules before playing
 		do {
+			
+			user_choices = IntInput.askInt(
+				"Select the action you would like to do:\n" +
+				"\t0 - Quit\n" +
+				"\t1 - Play\n" +
+				"\t2 -Check Yahtzee rules\n> ",
+				QUIT, RULES);
+			
 			switch (user_choices) {
-				case 1:
-					System.out.println("Select the action you would like to do :");
-					System.out.println("0- Quit");
-					System.out.println("1- Play");
-					System.out.println("2- Check Yathzee rules");
-					user_choices = sc.nextInt();
+				case PLAY:
+					Logger.log("This section has not been implemented yet");
 					break;
 					
 					
-				case 2:
+				case RULES:
 					diplayRules();
-					
-					System.out.println("Select the action you would like to do :");
-					System.out.println("0- Quit");
-					System.out.println("1- Play");
-					System.out.println("2- Check Yathzee rules");
-					user_choices = sc.nextInt();
 					break;
+					
+					
+				case QUIT:
+					Logger.log("Goodbye!");
+					break;
+					
+					
+				default:
+					Logger.log("Wow! You tricked the program! You are not supposed to read this since this line is theoretically unreachable");
 			}
-		} while (user_choices != 0);
+		} while (user_choices != QUIT);
 	}
 
-
-	/**
-	 * Displays the rules of the Yahtzee
-	 */
-	static void diplayRules(){
+	
+	static void diplayRules () {
+		System.out.println("\n\n========== Yahtzee Rules ==========\n");
 		System.out.println("Yahtzee can be played in solitary or by a group. The game consists of 13 rounds. \n" +
-				"In each round, you roll the dice and then score the roll in one of 13 categories. \n" +
-				"You must score once in each category -- which means that towards the end of the game you may have to settle for scoring zero in some categories. \n" +
+				"In each round, you roll the dices and then score the roll in one of 13 categories. \n" +
+				"You must score once in each category - which means that towards the end of the game you may have to settle for scoring zero in some categories. \n" +
 				"The score is determined by a different rule for each category. \n" +
 				"The object of the game is to maximize your total score (of course :-)\n");
 
-		System.out.println("Combination : It's working for every side of the die - you multiply the number of the side by the number of every dice which have this value");
-		System.out.println("Brelan : 3 dice are identical - Addition of the 5 dice");
-		System.out.println("Square : 4 dice are identical - Addition of the 5 dice");
-		System.out.println("Full : 3 dice are identical + 2 dice are identical - 20 pts");
-		System.out.println("Small serie : Four dice whose numbers follow each other  - 30 pts");
-		System.out.println("Large serie : The five dice follow each other - 40 pts");
-		System.out.println("Yahtzee : All dice are identical - 50 pts");
-		System.out.println("Luck : no condition\n");
+		System.out.println("\n========== Scoreboard ==========\n");
+		
+		System.out.println("------ Upper board ------");
+		System.out.println("Aces: Sum the number of aces");
+		System.out.println("Twos: Sum the number of twos, then multiply by 2");
+		System.out.println("Threes: Sum the number of threes, then multiply by 3");
+		System.out.println("Fours: Sum the number of fours, then multiply by 4");
+		System.out.println("Fives: Sum the number of fives, then multiply by 5");
+		System.out.println("Sixes: Sum the number of sixes, then multiply by 6");
+		System.out.println("If the sum of the scores of the upper board is greater than or equal to 63, then you get to score 37 bonus points\n");
+		
+		System.out.println("------ Lower board ------");
+		System.out.println("Three Of A Kind: 3 dices are identical - Addition of the 5 dices");
+		System.out.println("Four Of A Kind: 4 dices are identical - Addition of the 5 dices");
+		System.out.println("Full House: 3 dices are identical + 2 dice are identical - 20 points");
+		System.out.println("Small straight: Four dices whose numbers follow each other  - 30 points");
+		System.out.println("Large straight: The five dices follow each other - 40 points");
+		System.out.println("Yahtzee: All 5 dices are identical - 50 points");
+		System.out.println("Chance: no condition, sum all 5 dices\n");
+		
+		System.out.println("\n\n");
+	}
+	
+	
+	/**
+	 * Method that is called when running the program in a console / terminal
+	 */
+	private static void playConsole () {
+		startMenu();
+		
+		// TODO: implement game / assemble bricks here
 	}
 }
