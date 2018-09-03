@@ -40,4 +40,13 @@ public class Dice {
 	public void unlock () {
 		locked = false;
 	}
+	
+	
+	/**
+	 * Allows to know whether or not the instance is in a locked state
+	 * @return Whether or not the instance is in a locked state
+	 */
+	public boolean isLocked () {
+		return locked;
+	}
 }
