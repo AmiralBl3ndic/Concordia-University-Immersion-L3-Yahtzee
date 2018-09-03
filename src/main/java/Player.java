@@ -200,7 +200,9 @@ public class Player {
 	 * If the current player is the last player in the list, it will set the first player as the active player.
 	 */
 	public static void nextPlayer () {
-		currentPlayerIndex = (currentPlayerIndex + 1) % _players.size();
-		currentPlayer = _players.get(currentPlayerIndex);
+		if (_players.size() > 0) {
+			currentPlayerIndex = (currentPlayerIndex + 1) % _players.size();
+			currentPlayer = _players.get(currentPlayerIndex);
+		}
 	}
 }
