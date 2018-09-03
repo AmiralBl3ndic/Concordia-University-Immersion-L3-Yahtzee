@@ -198,5 +198,6 @@ public class Player {
 	 */
 	public static void nextPlayer () {
 		currentPlayerIndex = (currentPlayerIndex + 1) % _players.size();
+		currentPlayer = _players.get(currentPlayerIndex);
 	}
 }
