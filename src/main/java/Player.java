@@ -20,6 +20,7 @@ import java.util.Random;
 public class Player {
 	private static ArrayList<Player> _players = new ArrayList<>();
 	private static int currentPlayerIndex = -1;
+	private static Player currentPlayer = null;
 	
 	private Scores _scores = new Scores();
 	
@@ -57,6 +58,7 @@ public class Player {
 		
 		if (currentPlayerIndex == -1) {
 			currentPlayerIndex = 0;
+			currentPlayer = this;
 		}
 	}
 	
@@ -97,6 +99,7 @@ public class Player {
 		
 		if (currentPlayerIndex == -1) {
 			currentPlayerIndex = 0;
+			currentPlayer = this;
 		}
 	}
 	
