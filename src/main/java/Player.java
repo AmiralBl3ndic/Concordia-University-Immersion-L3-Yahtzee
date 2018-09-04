@@ -19,8 +19,10 @@ import java.util.Scanner;
  * It can store a player's name, his total score and his score board
  */
 public class Player {
+	private static final int UNSET_PLAYER_INDEX = -1;
+	
 	private static ArrayList<Player> _players = new ArrayList<>();
-	private static int currentPlayerIndex = -1;
+	private static int currentPlayerIndex = UNSET_PLAYER_INDEX;
 	
 	private Scores _scores = new Scores();
 	
@@ -33,8 +35,6 @@ public class Player {
 			new Dice(),
 			new Dice()
 	};
-
-	// TODO: create a Scores class (representing a score sheet for each player) and add an instance here as an instance variable
 	
 	
 	/**
@@ -136,6 +136,7 @@ public class Player {
 	public String getName () {
 		return name;
 	}
+	
 	
 	/**
 	 * Ask the player to enter his name.
