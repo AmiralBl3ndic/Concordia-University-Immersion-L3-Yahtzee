@@ -6,6 +6,7 @@
 
 package main.java;
 
+import inputs.IntInput;
 import logger.Logger;
 
 import java.util.ArrayList;
@@ -331,5 +332,60 @@ public class Scores {
 		sum += IntStream.of(combinations).sum();
 		
 		return sum;
+	}
+	
+	
+	public void displayTable () {
+		final int START_INDEX = 1;
+		int choiceIndex = START_INDEX;
+		
+		// Iterating through the upper part of the board
+		for (int i = 0; i < simples.length; i++) {
+			Logger.log(choiceIndex++ + ". " + simpleNames[i]);
+		}
+		
+		// Iterating though the lower part of the board
+		for (int i = 0; i < combinations.length; i++) {
+			Logger.log(choiceIndex++ + ". " + combinationsNames[i]);
+		}
+	}
+	
+	
+	public boolean store (Dice[] dices) {
+		final int UNSET_CHOICE = -1;
+		final int MINIMUM_CHOICE_INDEX = 1;
+		final int MAXIMUM_CHOICE_INDEX = simples.length + combinations.length;
+		
+		// Combinations Identifiers #NoMagicNumbers #<3Kelly<3
+		final int INDEX_RECTIFIER = 1;
+		final int ACES = 1;
+		final int TWOS = 2;
+		final int THREES = 3;
+		final int FOURS = 4;
+		final int FIVES = 5;
+		final int SIXES = 6;
+		final int THREE_OF_A_KIND = 7;
+		final int FULL_HOUSE = 8;
+		final int FOUR_OF_A_KIND = 9;
+		final int SMALL_STRAIGHT = 10;
+		final int LARGE_STRAIGHT = 11;
+		final int YAHTZEE = 12;
+		final int CHANCE = 13;
+		
+		
+		int[] faces = count(dices);  // Count iterations of each face
+		int choice = UNSET_CHOICE;
+		
+		// Displaying all the available choices
+		displayTable();
+		
+		// Asking where to store the
+		choice = IntInput.askInt("Where do you want to store your combination?\n> ", MINIMUM_CHOICE_INDEX, MAXIMUM_CHOICE_INDEX);
+		
+		switch (choice) {
+		
+		}
+		
+		return true;
 	}
 }
