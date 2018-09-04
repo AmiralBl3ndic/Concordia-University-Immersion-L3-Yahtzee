@@ -16,6 +16,12 @@ import java.util.stream.IntStream;
 public class Scores {
 	private final static int AVAILABLE = -1;  // #NoMagicNumbers
 	
+	private static int YAHTZEE_POINTS = 50;
+	private static int FULL_HOUSE_POINTS = 20;
+	private static int SMALL_STRAIGHT_POINTS = 30;
+	private static int LARGE_STRAIGHT_POINTS = 40;
+	
+	
 	private int[] simples = { AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE };
 	private final String[] simpleNames = {
 		"Ones",
@@ -54,11 +60,36 @@ public class Scores {
 	
 	
 	/**
+	 * Get the number of points when summing all dices
+	 * @param faces Number of iterations of each dice face
+	 * @return Number of points when summing all dices
+	 */
+	private static int sumFaces (int[] faces) {
+		final int ACES_INDEX = 0;
+		final int TWOS_INDEX = 1;
+		final int THREES_INDEX = 2;
+		final int FOURS_INDEX = 3;
+		final int FIVES_INDEX = 4;
+		final int SIXES_INDEX = 5;
+		final int SCORE_RECTIFIER = 1;
+		
+		int sum = faces[ACES_INDEX];
+		sum += faces[TWOS_INDEX] * (TWOS_INDEX + SCORE_RECTIFIER);
+		sum += faces[THREES_INDEX] * (THREES_INDEX + SCORE_RECTIFIER);
+		sum += faces[FOURS_INDEX] * (FOURS_INDEX + SCORE_RECTIFIER);
+		sum += faces[FIVES_INDEX] * (FIVES_INDEX + SCORE_RECTIFIER);
+		sum += faces[SIXES_INDEX] * (SIXES_INDEX + SCORE_RECTIFIER);
+		
+		return sum;
+	}
+	
+	
+	/**
 	 * Returns the number of points for a Three-Of-A-Kind with the passed dices
 	 * @param faces Number of iterations of each dice face
 	 * @return The number of points attributed for a Three-Of-A-Kind
 	 */
-	private int getPointsThreeOfAKind (int[] faces) {
+	private static int getPointsThreeOfAKind (int[] faces) {
 		// TODO: add support of different methods
 		
 		// By default, returns the sum of all dices
@@ -71,11 +102,16 @@ public class Scores {
 	 * @param faces Number of iterations of each dice face
 	 * @return The number of points attributed for a Four-Of-A-Kind
 	 */
-	private int getPointsFourOfAKind (int[] faces) {
+	private static int getPointsFourOfAKind (int[] faces) {
 		// TODO: add support of different methods
 		
 		// By default, returns the sum of all dices
 		return IntStream.of(faces).sum();
+	}
+	
+	
+	private int getPointsChance (int[] faces) {
+	
 	}
 	
 	
@@ -324,11 +360,20 @@ public class Scores {
 	}
 	
 	
-	
+	/**
+	 * Computes the total number of points for the board
+	 * @return The number of points associated to the instance
+	 */
 	public int total () {
+		final int MINIMUM_UPPER_SCORE_FOR_BONUS = 63;
+		final int UPPER_BONUS = 37;
+		
 		int sum = 0;
 		
 		sum += IntStream.of(simples).sum();
+		if (sum >= MINIMUM_UPPER_SCORE_FOR_BONUS)
+			sum += UPPER_BONUS;
+		
 		sum += IntStream.of(combinations).sum();
 		
 		return sum;
@@ -357,6 +402,7 @@ public class Scores {
 		final int MAXIMUM_CHOICE_INDEX = simples.length + combinations.length;
 		
 		// Combinations Identifiers #NoMagicNumbers #<3Kelly<3
+		final int COMBINATION_RECTIFIER = simples.length;
 		final int INDEX_RECTIFIER = 1;
 		final int ACES = 1;
 		final int TWOS = 2;
@@ -382,10 +428,72 @@ public class Scores {
 		// Asking where to store the
 		choice = IntInput.askInt("Where do you want to store your combination?\n> ", MINIMUM_CHOICE_INDEX, MAXIMUM_CHOICE_INDEX);
 		
+		// Analyzing user choice (and recording if available)
 		switch (choice) {
-		
+			/*
+				Upper part of the board
+			 */
+			case ACES:
+				return storeSimpleScore(ACES, faces);
+				
+			case TWOS:
+				return storeSimpleScore(TWOS, faces);
+				
+			case THREES:
+				return storeSimpleScore(THREES, faces);
+				
+			case FOURS:
+				return storeSimpleScore(FOURS, faces);
+				
+			case FIVES:
+				return storeSimpleScore(FIVES, faces);
+				
+			case SIXES:
+				return storeSimpleScore(SIXES, faces);
+				
+				
+			default:
+				Logger.log("Wow! You tricked our program, take a cookie as a reward for your bugging skills");
+				return false;
 		}
+	}
+	
+	
+	/**
+	 * Computes and stores a score for the upper part of the board
+	 * @param index Face to store (1 for Aces, 2 for Twos, etc.)
+	 * @param faces Number of iterations of each face
+	 * @return Whether or not the score has been stored
+	 */
+	private boolean storeSimpleScore (int index, int[] faces) {
+		final int INDEX_RECTIFIER = 1;
 		
-		return true;
+		if (simples[index - INDEX_RECTIFIER] == AVAILABLE) {
+			simples[index - INDEX_RECTIFIER] = index * faces[index - INDEX_RECTIFIER];  // Computing the score
+			return true;
+		} else {
+			Logger.log("This choice is not available");
+			return false;
+		}
+	}
+	
+	
+	/**
+	 * Stores the score for the lower part of the board
+	 * The score is not computed here in order to keep this method simple
+	 * @param index Index of the score to store (1 for Three Of A Kind, 2 for Full House, etc.)
+	 * @param score Score to store
+	 * @return Whether or not the score has been stored
+	 */
+	private boolean storeCombinationScore (int index, int score) {
+		final int INDEX_RECTIFIER = 1;
+		
+		if (combinations[index - INDEX_RECTIFIER] == AVAILABLE) {
+			combinations[index - INDEX_RECTIFIER] = score;
+			return true;
+		} else {
+			Logger.log("This choice is not available");
+			return false;
+		}
 	}
 }
