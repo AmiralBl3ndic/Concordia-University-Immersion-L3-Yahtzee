@@ -274,6 +274,127 @@ public class Player {
 	
 	
 	/**
+	 * Resets all the dices in an unlocked state
+	 */
+	public void resetDices () {
+		for (Dice dice : dices) {
+			dice.unlock();
+		}
+	}
+	
+	
+	/**
+	 * Checks whether or not the user has at least one locked dice
+	 * @return Whether or not the user has at least one locked dice
+	 */
+	private boolean hasLockedDice () {
+		for (Dice dice : dices) {
+			if (dice.isLocked()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	
+	/**
+	 * Displays the (un)locked dices
+	 * <br />
+	 * Advertises the user that these are the (un)locked dices by displaying a short message before display
+	 *
+	 * @param locked Dices to display (true = locked dices, false = unlocked dices)
+	 */
+	private void displayDices (boolean locked) {
+		final int START_DISPLAY_INDEX = 1;
+		int index = START_DISPLAY_INDEX;
+		
+		if (locked) {
+			if (hasLockedDice()) {
+				Logger.log("Locked dices:\n");
+				
+				for (Dice dice : dices) {
+					if (dice.isLocked()) {
+						System.out.print("┌---┐  ");
+					}
+				}
+				
+				System.out.print("\n");
+				
+				for (Dice dice : dices) {
+					if (dice.isLocked()) {
+						System.out.printf("| %d |  ", dice.getValue());
+					}
+				}
+				
+				System.out.print("\n");
+				
+				for (Dice dice : dices) {
+					if (dice.isLocked()) {
+						System.out.print("└---┘  ");
+					}
+				}
+				
+				System.out.print("\n");
+				
+				for (int i = 0; i < dices.length; i++) {
+					if (dices[i].isLocked()) {
+						System.out.printf(" [%d]   ", (i + 1));
+					}
+				}
+				
+				System.out.println("\n");
+			}
+		} else {
+			Logger.log("Unlocked dices:\n");
+			
+			for (Dice dice : dices) {
+				if (!dice.isLocked()) {
+					System.out.print("┌---┐  ");
+				}
+			}
+			
+			System.out.print("\n");
+			
+			for (Dice dice : dices) {
+				if (!dice.isLocked()) {
+					System.out.printf("| %d |  ", dice.getValue());
+				}
+			}
+			
+			System.out.print("\n");
+			
+			for (Dice dice : dices) {
+				if (!dice.isLocked()) {
+					System.out.print("└---┘  ");
+				}
+			}
+			
+			System.out.print("\n");
+			
+			for (int i = 0; i < dices.length; i++) {
+				if (!dices[i].isLocked()) {
+					System.out.printf(" [%d]   ", (i + 1));
+				}
+			}
+			
+			System.out.println("\n");
+		}
+	}
+	
+	
+	/**
+	 * Displays the locked and unlocked dices (being precise about their (un)locked state)
+	 */
+	public void displayDices () {
+		displayDices(false);
+		Logger.log("-----------------");
+		displayDices(true);
+	}
+	
+	
+	/**
 	 * Sets the current player to the next player in the list.
 	 * <br />
 	 * If the current player is the last player in the list, it will set the first player as the active player.
