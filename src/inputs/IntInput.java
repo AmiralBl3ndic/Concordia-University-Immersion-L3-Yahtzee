@@ -6,6 +6,9 @@
 
 package inputs;
 
+import logger.Logger;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public final class IntInput {
@@ -100,4 +103,46 @@ public final class IntInput {
 		
 		return value;
 	}
+	
+	
+	/**
+	 * Asks the user to type one or more integer(s) using his keyboard
+	 * @param message Message to display (advertise) the user of the awaited action
+	 * @return The list of all the integers typed by the user
+	 */
+	public static ArrayList<Integer> askMultiple (String message) {
+		ArrayList<Integer> values = new ArrayList<>();
+		boolean ok = false;
+		Scanner kb = new Scanner(System.in);
+		
+		do {
+			try {
+				System.out.print(message);
+				
+				String line = kb.nextLine();
+				
+				String[] lineElements = line.split(" ");
+				
+				for (String element : lineElements) {
+					try {
+						int val = Integer.parseInt(element);
+						values.add(val);
+					} catch (Exception ignored) {}
+				}
+				
+				ok = true;
+			} catch (Exception ignored) {
+				values.clear();  // Clear all the stored values before asking them again (just to be sure)
+				kb.nextLine();  // Avoid being stuck in an infinite loop
+				ok = false;  // Not needed but clearer
+				
+				System.out.println("Sorry, the values you entered were not all recognized, please try again...");
+			}
+		} while (!ok);
+		
+		return values;
+	}
+	
+	
+	
 }
