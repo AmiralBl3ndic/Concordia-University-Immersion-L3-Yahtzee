@@ -297,4 +297,28 @@ public class Scores {
 		return possibles;
 	}
 	
+	
+	/**
+	 * Prints the available "storage" in the console
+	 */
+	public void displayAvailable () {
+		final int START_INDEX = 1;
+		int choiceIndex = START_INDEX;
+		
+		Logger.log("\n\nAvailable storage:\n");
+		
+		// Iterating through the "simple" combinations
+		for (int i = 0; i < simples.length; i++) {
+			if (simples[i] == AVAILABLE) {  // Checking if combination is available
+				Logger.log(choiceIndex++ + ". " + simpleNames[i]);
+			}
+		}
+		
+		// Iterating through the "complex" combinations
+		for (int i = 0; i < combinations.length; i++) {
+			if (combinations[i] == AVAILABLE) {  // Checking if combination is available
+				Logger.log(choiceIndex++ + ". " + combinationsNames[i]);
+			}
+		}
+	}
 }
