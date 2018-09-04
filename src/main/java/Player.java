@@ -451,9 +451,16 @@ public class Player {
 			selectDices();
 			
 			// Asking if need to re-roll the unlocked dices
-			boolean reRoll = IntInput.askInt("Roll the unlocked dices again? (" + STOP_ROLL + " = No, " + ROLL_AGAIN + " = Yes)\n> ", STOP_ROLL, ROLL_AGAIN) == STOP_ROLL;
-			if (reRoll)
+			if (rolls < MAXIMUM_ROLLS){
+				boolean reRoll = IntInput.askInt("Roll the unlocked dices again? (" + STOP_ROLL + " = No, " + ROLL_AGAIN + " = Yes)\n> ", STOP_ROLL, ROLL_AGAIN) == STOP_ROLL;
+				if (reRoll)
+					break;
+			}
+			else {
+				System.out.println("Your don't have more roll, you have to choose where you want to put your score");
 				break;
+			}
+
 		}
 		
 		_scores.displayAvailable();
