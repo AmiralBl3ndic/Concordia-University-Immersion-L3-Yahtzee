@@ -62,7 +62,7 @@ public class Dice {
 	
 	/**
 	 * Gets the value of the <code>Dice</code> instance
-	 * @return
+	 * @return the value of the Dice
 	 */
 	public int getValue () {
 		return value;
