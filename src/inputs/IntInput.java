@@ -6,8 +6,6 @@
 
 package inputs;
 
-import logger.Logger;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,7 +41,7 @@ public final class IntInput {
 	 * @param message Message to display (advertise) the user of the awaited action
 	 * @param min Minimum allowed value (inclusive)
 	 * @param max Maximum allowed value (inclusive)
-	 * @return
+	 * @return the value enter by the user
 	 */
 	public static int askInt (String message, int min, int max) {
 		int value = min - 1;

@@ -41,11 +41,8 @@ public class Player {
 	
 	/**
 	 * Default constructor.
-	 * <br />
 	 * Sets the name of the player to "Player x" where x is the number of players (at least 1).
-	 * <br />
 	 * Sets the total score to 0.
-	 *  <br /><br />
 	 * /!\ Warning: Using this method is discouraged since it produces a random name which may not be easy to read and recognize for the players.
 	 */
 	public Player () {
@@ -75,7 +72,6 @@ public class Player {
 	
 	/**
 	 * Constructor by name.
-	 * <br />
 	 * Sets the name of the player to the passed name.
 	 * @param playerName Name to give to the player
 	 */
@@ -176,7 +172,6 @@ public class Player {
 	
 	/**
 	 * Determines if two players are equals.
-	 * <br />
 	 * This method only compares players by their names.
 	 * @param obj Player instance to compare
 	 * @return Whether or not the players are equal
@@ -190,7 +185,6 @@ public class Player {
 	
 	/**
 	 * Deletes a player by resetting its data and removing it from the list of players.
-	 * <br />
 	 * Use this method as a destructor for the Player class.
 	 */
 	public void delete () {
@@ -301,7 +295,6 @@ public class Player {
 	
 	/**
 	 * Displays the (un)locked dices
-	 * <br />
 	 * Advertises the user that these are the (un)locked dices by displaying a short message before display
 	 *
 	 * @param locked Dices to display (true = locked dices, false = unlocked dices)
@@ -396,7 +389,6 @@ public class Player {
 	
 	/**
 	 * Sets the current player to the next player in the list.
-	 * <br />
 	 * If the current player is the last player in the list, it will set the first player as the active player.
 	 */
 	public static void nextPlayer () {
