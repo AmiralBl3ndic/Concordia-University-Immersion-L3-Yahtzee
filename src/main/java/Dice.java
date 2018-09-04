@@ -15,8 +15,11 @@ public class Dice {
 	 * @return An integer between 1 and 6 (both inclusive)
 	 */
 	public int roll () {
+		final int NUMBER_OF_FACES = 6;
+		final int RECTIFICATION_RANDOM = 1;
+
 		if (!locked) {
-			value = (new Random().nextInt(6)) + 1;
+			value = (new Random().nextInt(NUMBER_OF_FACES)) + RECTIFICATION_RANDOM;
 		}
 		
 		return value;
