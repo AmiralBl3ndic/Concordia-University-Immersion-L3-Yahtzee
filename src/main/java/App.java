@@ -100,6 +100,18 @@ public class App {
 	private static void playConsole () {
 		startMenu();
 		
-		// TODO: implement game / assemble bricks here
+		ArrayList<Player> players = Player.addPlayers();
+		
+		Logger.log("\n\n\n\n\n\nLet's start!\n");
+		
+		for (Player player : players) {
+			Logger.log("===== " + player.getName() + "'s turn! =====\n\n");
+			
+			player.play();
+			
+			Logger.log("\n\n=======================================\n\n\n");
+		}
+		
+		Logger.logVerboseDebug("End of players creation");
 	}
 }
