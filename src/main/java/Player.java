@@ -209,33 +209,66 @@ public class Player {
 			dice.roll();
 		}
 	}
-
-	public void lockDice(Dice[] dices){
+	
+	
+	/**
+	 * Asks the user for the dices he wants to lock
+	 */
+	public void selectDices() {
+		// We will subtract 1 to obtain the actual index of the dice
 		final int DICE_1 = 1;
 		final int DICE_2 = 2;
 		final int DICE_3 = 3;
 		final int DICE_4 = 4;
 		final int DICE_5 = 5;
+		
+		boolean lockAnotherDice = true;
+		final int LOCK_ANOTHER = 1;
+		final int SKIP = 0;
+		
+		ArrayList<Integer> userDicesChoice;
+		
 
-		int userDiceChoice;
-		userDiceChoice = IntInput.askInt("Choose the dices you wanna keep: ", DICE_1, DICE_5);
-		switch (userDiceChoice){
-			case DICE_1 :
-				dices[DICE_1].lock();
-				break;
-			case DICE_2 :
-				dices[DICE_2].lock();
-				break;
-			case DICE_3 :
-				dices[DICE_3].lock();
-				break;
-			case DICE_4 :
-				dices[DICE_4].lock();
-			case DICE_5 :
-				dices[DICE_5].lock();
-				break;
-
-				default :
+		while (lockAnotherDice) {
+			displayDices();
+			
+			userDicesChoice = IntInput.askMultiple("Choose one dice you want to lock (or unlock) (blank for none): ");
+			
+			for (int choice : userDicesChoice) {
+				switch (choice) {
+					case DICE_1:
+						dices[DICE_1 - 1].toggleLock();
+						break;
+					
+					
+					case DICE_2:
+						dices[DICE_2 - 1].toggleLock();
+						break;
+					
+					
+					case DICE_3:
+						dices[DICE_3 - 1].toggleLock();
+						break;
+					
+					
+					case DICE_4:
+						dices[DICE_4 - 1].toggleLock();
+						break;
+					
+					
+					case DICE_5:
+						dices[DICE_5 - 1].toggleLock();
+						break;
+					
+					default:
+						Logger.log(choice, "is not a valid dice id");
+				}
+			}
+			
+			displayDices();
+			
+			// Asking if need to lock another dice
+			lockAnotherDice = IntInput.askInt("Lock another dice? (" + SKIP + " = No, " + LOCK_ANOTHER + " = Yes)\n> ", SKIP, LOCK_ANOTHER) == LOCK_ANOTHER;
 		}
 	}
 	
