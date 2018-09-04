@@ -28,8 +28,6 @@ public class Player {
 	
 	private String name;
 	
-	private int totalScore;  // TODO: remove this property
-	
 	private Dice[] dices =  {
 			new Dice(),
 			new Dice(),
@@ -62,8 +60,6 @@ public class Player {
 			name = "Player " + randomNumber;
 		}
 		
-		totalScore = 0;
-		
 		Logger.logVerboseDebug("Adding player " + name + " to players list");
 		_players.add(this);
 		
@@ -80,7 +76,6 @@ public class Player {
 	 * @param playerName Name to give to the player
 	 */
 	public Player (String playerName) {
-		totalScore = 0;
 		
 		Logger.logVerboseDebug("Creating a new instance of Player");
 		
@@ -160,8 +155,7 @@ public class Player {
 	 * @return Total score of the current <code>Player</code> instance
 	 */
 	public int getTotalScore () {
-		// TODO: replace the following line by the method of class Scores computing the total score
-		return totalScore;
+		return _scores.total();
 	}
 	
 	
