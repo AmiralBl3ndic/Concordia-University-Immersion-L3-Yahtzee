@@ -93,7 +93,7 @@ public class Scores {
 		// TODO: add support of different methods
 		
 		// By default, returns the sum of all dices
-		return IntStream.of(faces).sum();
+		return sumFaces(faces);
 	}
 	
 	
@@ -106,12 +106,17 @@ public class Scores {
 		// TODO: add support of different methods
 		
 		// By default, returns the sum of all dices
-		return IntStream.of(faces).sum();
+		return sumFaces(faces);
 	}
 	
 	
+	/**
+	 * Returns the number of points for a Chance with the passed dices
+	 * @param faces Number of iterations of each dice face
+	 * @return The number of points attributed for a Chance
+	 */
 	private int getPointsChance (int[] faces) {
-	
+		return sumFaces(faces);
 	}
 	
 	
@@ -428,6 +433,8 @@ public class Scores {
 		// Asking where to store the
 		choice = IntInput.askInt("Where do you want to store your combination?\n> ", MINIMUM_CHOICE_INDEX, MAXIMUM_CHOICE_INDEX);
 		
+		int score = 0;
+		
 		// Analyzing user choice (and recording if available)
 		switch (choice) {
 			/*
@@ -450,6 +457,56 @@ public class Scores {
 				
 			case SIXES:
 				return storeSimpleScore(SIXES, faces);
+				
+			
+			/*
+			Lower part of the board
+			 */
+				
+			case THREE_OF_A_KIND:
+				if (checkThreeOfAKind(faces)) {
+					score = getPointsThreeOfAKind(faces);
+				}
+				return storeCombinationScore(THREE_OF_A_KIND - COMBINATION_RECTIFIER, score);
+				
+			
+			case FULL_HOUSE:
+				if (checkFullHouse(faces)) {
+					score = FULL_HOUSE_POINTS;
+				}
+				return storeCombinationScore(FULL_HOUSE - COMBINATION_RECTIFIER, score);
+				
+			case FOUR_OF_A_KIND:
+				if (checkFourOfAKind(faces)) {
+					score = getPointsFourOfAKind(faces);
+				}
+				return storeCombinationScore(FOUR_OF_A_KIND - COMBINATION_RECTIFIER, score);
+				
+				
+			case SMALL_STRAIGHT:
+				if (checkSmallStraight(faces)) {
+					score = SMALL_STRAIGHT_POINTS;
+				}
+				return storeCombinationScore(SMALL_STRAIGHT - COMBINATION_RECTIFIER, score);
+				
+				
+			case LARGE_STRAIGHT:
+				if (checkLargeStraight(faces)) {
+					score = LARGE_STRAIGHT_POINTS;
+				}
+				return storeCombinationScore(LARGE_STRAIGHT - COMBINATION_RECTIFIER, score);
+				
+				
+			case YAHTZEE:
+				if (checkYahtzee(faces)) {
+					score = YAHTZEE_POINTS;
+				}
+				return storeCombinationScore(YAHTZEE - COMBINATION_RECTIFIER, score);
+				
+				
+			case CHANCE:
+				score = getPointsChance(faces);
+				return storeCombinationScore(CHANCE - COMBINATION_RECTIFIER, score);
 				
 				
 			default:
