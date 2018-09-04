@@ -195,9 +195,12 @@ public class Scores {
 	
 	
 	public static int[] count (Dice[] dices) {
-		int[] faces = {0, 0, 0, 0, 0};
+		final int INDEX_RECTIFIER = 1;
+		int[] faces = {0, 0, 0, 0, 0, 0};
 		
-		// TODO: implement this method
+		for (Dice dice : dices) {
+			faces[dice.getValue() - INDEX_RECTIFIER]++;
+		}
 		
 		return faces;
 	}
