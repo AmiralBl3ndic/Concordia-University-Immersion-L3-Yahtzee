@@ -402,4 +402,74 @@ public class Player {
 	public static void nextPlayer () {
 		currentPlayerIndex = (currentPlayerIndex + 1) % _players.size();
 	}
+	
+	
+	/**
+	 * Adds players one by one
+	 * @return Number of registered players
+	 */
+	public static ArrayList<Player> addPlayers () {
+		final int UNSET_STATUS = -1;
+		final int STOP_CREATING_PLAYERS = 0;
+		final int CREATE_A_NEW_PLAYER = 1;
+		final int MINIMUM_NUMBERS_OF_CHARACTERS = 3;
+		
+		
+		Scanner kb = new Scanner(System.in);
+		int status = UNSET_STATUS;
+		
+		// Looping until player decides not to create anymore player(s)
+		do {
+			System.out.println("Creating a new player\n");
+			
+			String newPlayerName;
+			
+			// Looping while the typed name does is not at least 3 characters long
+			do {
+				System.out.printf("Player's name (minimum %d characters): ", MINIMUM_NUMBERS_OF_CHARACTERS);
+				newPlayerName = kb.nextLine();
+				
+				if (newPlayerName.length() < MINIMUM_NUMBERS_OF_CHARACTERS) {
+					Logger.log("We just said the minimum number of characters is", MINIMUM_NUMBERS_OF_CHARACTERS + ". Weren't you listening?");
+				}
+			} while (newPlayerName.length() < MINIMUM_NUMBERS_OF_CHARACTERS || !checkAvailableName(newPlayerName));
+			
+			// Actually creating a new player
+			Player newPlayer = new Player(newPlayerName);
+			
+			// Asking if need to create another player
+			status = IntInput.askInt("Create another player? (" + STOP_CREATING_PLAYERS + " = No, " + CREATE_A_NEW_PLAYER + " = Yes)\n> ", STOP_CREATING_PLAYERS, CREATE_A_NEW_PLAYER);
+			
+		} while (status != STOP_CREATING_PLAYERS);
+		
+		
+		// Returning the array of players (converted from ArrayList)
+		return _players;
+	}
+	
+	
+	
+	public void play () {
+		final int MAXIMUM_ROLLS = 3;
+		final int STOP_ROLL = 0;
+		final int ROLL_AGAIN = 1;
+		
+		// Allowing only
+		for (int rolls = 1; rolls <= MAXIMUM_ROLLS; rolls++) {
+			Logger.log("Dice roll #" + rolls);
+			
+			rollDices();
+			
+			// TODO: ==> insert combinations checking here <==
+			
+			selectDices();
+			
+			// Asking if need to re-roll the unlocked dices
+			boolean reRoll = IntInput.askInt("Roll the unlocked dices again? (" + STOP_ROLL + " = No, " + ROLL_AGAIN + " = Yes)\n> ", STOP_ROLL, ROLL_AGAIN) == STOP_ROLL;
+			if (reRoll)
+				break;
+		}
+		
+		_scores.displayAvailable();
+	}
 }
