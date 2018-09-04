@@ -321,4 +321,15 @@ public class Scores {
 			}
 		}
 	}
+	
+	
+	
+	public int total () {
+		int sum = 0;
+		
+		sum += IntStream.of(simples).sum();
+		sum += IntStream.of(combinations).sum();
+		
+		return sum;
+	}
 }
