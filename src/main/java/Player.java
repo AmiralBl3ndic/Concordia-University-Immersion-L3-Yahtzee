@@ -27,8 +27,10 @@ public class Player {
 	private Scores _scores = new Scores();
 	
 	private String name;
-	private int totalScore;
-	private Dice[] dice =  {
+	
+	private int totalScore;  // TODO: remove this property
+	
+	private Dice[] dices =  {
 			new Dice(),
 			new Dice(),
 			new Dice(),
@@ -197,14 +199,15 @@ public class Player {
 		_players.removeIf(player -> player == this);
 		// TODO: handle the Scores property
 	}
-
-
-	public Dice[] rollDice(Dice[] dices){
-		final int DICE_5 = 5;
-		for (int i = 0; i <= DICE_5; i++) {
-			dices[i].roll();
+	
+	
+	/**
+	 * Rolls all the dices that are not in a locked state
+	 */
+	public void rollDices () {
+		for (Dice dice : dices) {
+			dice.roll();
 		}
-		return dices;
 	}
 
 	public void lockDice(Dice[] dices){
