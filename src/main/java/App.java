@@ -3,10 +3,14 @@ package main.java;
 import logger.Logger;
 import inputs.IntInput;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 	public static void main(final String[] args) {
+		//Logger.setVerboseDebug();
+		Logger.setDebug();
+		
 		playConsole();
 	}
 	
