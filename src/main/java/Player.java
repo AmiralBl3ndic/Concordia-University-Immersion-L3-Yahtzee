@@ -477,9 +477,7 @@ public class Player {
 			Logger.log("Dice roll #" + rolls);
 			
 			rollDices();
-			
-			// TODO: ==> insert combinations checking here <==
-			
+
 			selectDices();
 			
 			// Asking if need to re-roll the unlocked dices
@@ -500,5 +498,9 @@ public class Player {
 
 		//Asking where to store until actually stored
 		while (!_scores.store(dices));
+
+		Logger.log("Your score for now : ");
+		_scores.displayScore();
 	}
+
 }

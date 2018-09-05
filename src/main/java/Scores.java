@@ -89,10 +89,11 @@ public class Scores {
 	 * @return The number of points attributed for a Three-Of-A-Kind
 	 */
 	private static int getPointsThreeOfAKind (int[] faces) {
-		// TODO: add support of different methods
-		
-		// By default, returns the sum of all dices
-		return sumFaces(faces);
+		if (checkThreeOfAKind(faces)){
+			return sumFaces(faces);
+		}
+		// By default, returns 0
+		return 0;
 	}
 	
 	
@@ -102,10 +103,11 @@ public class Scores {
 	 * @return The number of points attributed for a Four-Of-A-Kind
 	 */
 	private static int getPointsFourOfAKind (int[] faces) {
-		// TODO: add support of different methods
-		
-		// By default, returns the sum of all dices
+	if (checkFourOfAKind(faces)){
 		return sumFaces(faces);
+	}
+		// By default, returns 0
+		return 0;
 	}
 	
 	
@@ -124,7 +126,7 @@ public class Scores {
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices can be used for a Three-Of-A-Kind or maybe higher combinations that needs at least 3 identical faces
 	 */
-	public boolean checkThreeOfAKind (int[] faces) {
+	public static boolean checkThreeOfAKind (int[] faces) {
 		if (faces.length != 6) {
 			return false;
 		}
@@ -144,7 +146,7 @@ public class Scores {
 	 * @param faces Number of iterations of each dice face
 	 * @return Whether or not the combination of dices can be used for a Four-Of-A-Kind or maybe a yahtzee
 	 */
-	public boolean checkFourOfAKind (int[] faces) {
+	public static boolean checkFourOfAKind (int[] faces) {
 		if (faces.length != 6) {
 			return false;
 		}
@@ -560,6 +562,7 @@ public class Scores {
 	}
 
 	public void displayScore(){
-		//TODO : Create the function to display the score in the console
+		//TODO : Have to display the score of each player after the turn
+
 	}
 }
