@@ -10,7 +10,6 @@ import inputs.IntInput;
 import logger.Logger;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class Scores {
@@ -354,12 +353,18 @@ public class Scores {
 			if (simples[i] == AVAILABLE) {  // Checking if combination is available
 				Logger.log(choiceIndex++ + ". " + simpleNames[i]);
 			}
+			else {
+				choiceIndex ++;
+			}
 		}
 		
 		// Iterating through the "complex" combinations
 		for (int i = 0; i < combinations.length; i++) {
 			if (combinations[i] == AVAILABLE) {  // Checking if combination is available
 				Logger.log(choiceIndex++ + ". " + combinationsNames[i]);
+			}
+			else{
+				choiceIndex++;
 			}
 		}
 	}
@@ -428,7 +433,7 @@ public class Scores {
 		int choice = UNSET_CHOICE;
 		
 		// Displaying all the available choices
-		displayTable();
+		displayAvailable();
 		
 		// Asking where to store the
 		choice = IntInput.askInt("Where do you want to store your combination?\n> ", MINIMUM_CHOICE_INDEX, MAXIMUM_CHOICE_INDEX);
@@ -552,5 +557,9 @@ public class Scores {
 			Logger.log("This choice is not available");
 			return false;
 		}
+	}
+
+	public void displayScore(){
+		//TODO : Create the function to display the score in the console
 	}
 }

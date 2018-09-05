@@ -461,9 +461,10 @@ public class Player {
 				break;
 			}
 
+
 		}
 		
-		_scores.displayAvailable();
+		//_scores.displayAvailable();
 		
 		while (!_scores.store(dices));
 	}

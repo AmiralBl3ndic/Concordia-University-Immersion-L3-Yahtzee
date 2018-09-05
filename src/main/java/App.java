@@ -98,19 +98,27 @@ public class App {
 	 * Method that is called when running the program in a console / terminal
 	 */
 	private static void playConsole () {
+		final int FIRST_TURN = 1;
+		final int LAST_TURN = 13;
 		startMenu();
 		
 		ArrayList<Player> players = Player.addPlayers();
 		
 		Logger.log("\n\n\n\n\n\nLet's start!\n");
-		
-		for (Player player : players) {
-			Logger.log("===== " + player.getName() + "'s turn! =====\n\n");
-			
-			player.play();
-			
-			Logger.log("\n\n=======================================\n\n\n");
+		for (int turn = FIRST_TURN; turn <= LAST_TURN; turn++) {
+			for (Player player : players) {
+				Logger.log("===== " + player.getName() + "'s turn! =====\n\n");
+
+				player.play();
+
+				Logger.log("\n\n=======================================\n\n\n");
+
+				player.resetDices();
+			}
+
+
 		}
+
 		
 		Logger.logVerboseDebug("End of players creation");
 	}
