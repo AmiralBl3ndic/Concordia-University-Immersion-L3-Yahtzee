@@ -379,6 +379,38 @@ public class Player {
 		Logger.log("-----------------");
 		displayDices(true);
 	}
+
+	/**
+	 * Display all the dices locked and unlocked on the same line
+	 */
+	public void displayAllDices(){
+
+		for (Dice dice : dices) {
+				System.out.print("┌---┐  ");
+		}
+
+		System.out.print("\n");
+
+		for (Dice dice : dices) {
+				System.out.printf("| %d |  ", dice.getValue());
+		}
+
+		System.out.print("\n");
+
+		for (Dice dice : dices) {
+				System.out.print("└---┘  ");
+		}
+
+		System.out.print("\n");
+
+		for (int i = 0; i < dices.length; i++) {
+				System.out.printf(" [%d]   ", (i + 1));
+		}
+
+		System.out.println("\n");
+	}
+
+
 	
 	
 	/**
@@ -463,9 +495,10 @@ public class Player {
 
 
 		}
-		
-		//_scores.displayAvailable();
-		
+		Logger.log("Your dices : ");
+		displayAllDices();
+
+		//Asking where to store until actually stored
 		while (!_scores.store(dices));
 	}
 }
