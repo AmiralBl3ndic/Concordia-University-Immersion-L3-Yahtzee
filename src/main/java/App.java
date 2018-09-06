@@ -119,7 +119,10 @@ public class App {
 
 		}
 
-		
-		Logger.logVerboseDebug("End of players creation");
+		for (Player player : players){
+			Logger.log("Here the total score of " + player.getName() + " : " );
+			//TODO : put the score method in the player class
+		}
+
 	}
 }
