@@ -478,7 +478,10 @@ public class Player {
 			
 			rollDices();
 
-			selectDices();
+			if(rolls < MAXIMUM_ROLLS){
+				selectDices();
+			}
+
 			
 			// Asking if need to re-roll the unlocked dices
 			if (rolls < MAXIMUM_ROLLS){
