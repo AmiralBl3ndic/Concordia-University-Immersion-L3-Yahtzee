@@ -10,6 +10,7 @@ import inputs.IntInput;
 import logger.Logger;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Scores {
@@ -22,7 +23,7 @@ public class Scores {
 
 
 	private int[] simples = {AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE};
-	private final String[] simpleNames = {
+	public final String[] simpleNames = {
 			"Ones",
 			"Twos",
 			"Threes",
@@ -32,7 +33,7 @@ public class Scores {
 	};
 
 	private int[] combinations = {AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE};
-	private final String[] combinationsNames = {
+	public final String[] combinationsNames = {
 			"Three-of-a-kind",
 			"Full-house",
 			"Four-of-a-kind",
@@ -583,5 +584,23 @@ public class Scores {
 			indexCombinaison++;
 		}
 
+	}
+	
+	
+	
+	public int[] getScores () {
+		int[] scores = new int[combinations.length + simples.length];
+		int index = 0;
+		
+		
+		for (int simple : simples) {
+			scores[index++] = simple;
+		}
+		
+		for (int combination : combinations) {
+			scores[index++] = combination;
+		}
+		
+		return scores;
 	}
 }
