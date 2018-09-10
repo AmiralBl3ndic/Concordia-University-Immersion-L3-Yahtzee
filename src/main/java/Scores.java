@@ -387,8 +387,11 @@ public class Scores {
 
 		return sum;
 	}
-
-
+	
+	
+	/**
+	 * Display the scoreboard of a single player
+	 */
 	public void displayTable() {
 		final int START_INDEX = 1;
 		int choiceIndex = START_INDEX;
