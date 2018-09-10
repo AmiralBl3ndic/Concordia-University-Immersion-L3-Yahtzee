@@ -591,7 +591,10 @@ public class Scores {
 	}
 	
 	
-	
+	/**
+	 * Get a single array of scores ("   " if available)
+	 * @return A single array of scores ("   " if the section is available)
+	 */
 	public String[] getScores () {
 		String[] scores = new String[combinations.length + simples.length];
 		int index = 0;
