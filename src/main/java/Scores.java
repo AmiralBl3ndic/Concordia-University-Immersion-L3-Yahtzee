@@ -234,8 +234,13 @@ public class Scores {
 
 		return false;
 	}
-
-
+	
+	
+	/**
+	 * Count the iterations of each face of the dices
+	 * @param dices Rolled dices
+	 * @return Array of integer containing the number of iterations of each face
+	 */
 	public static int[] count(Dice[] dices) {
 		final int INDEX_RECTIFIER = 1;
 		int[] faces = {0, 0, 0, 0, 0, 0};
