@@ -557,7 +557,11 @@ public class Scores {
 			return false;
 		}
 	}
-
+	
+	
+	/**
+	 * Displays the scoreboard of a player
+	 */
 	public void displayScore() {
 		final int MAX_SIMPLE = simples.length;
 		final int MAX_COMBINAISON = combinations.length;
