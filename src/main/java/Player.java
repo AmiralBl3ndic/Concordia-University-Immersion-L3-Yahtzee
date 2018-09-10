@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  * Class that represents a player
- * It can store a player's name, his total score and his score board
+ * It can store a player's name  and his score board ({@link main.java.Scores})
  */
 public class Player {
 	private static final int UNSET_PLAYER_INDEX = -1;
