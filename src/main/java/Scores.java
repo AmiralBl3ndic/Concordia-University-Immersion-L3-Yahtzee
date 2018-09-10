@@ -403,8 +403,13 @@ public class Scores {
 			Logger.log(choiceIndex++ + ". " + combinationsNames[i]);
 		}
 	}
-
-
+	
+	
+	/**
+	 * Store the combination into the correct place (by asking the user where to store it) if it is available
+	 * @param dices Rolled dices
+	 * @return Whether or not the score has been stored (available choice or not)
+	 */
 	public boolean store(Dice[] dices) {
 		final int UNSET_CHOICE = -1;
 		final int MINIMUM_CHOICE_INDEX = 1;
