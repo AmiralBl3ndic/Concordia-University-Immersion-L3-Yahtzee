@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
+/**
+ * Class that represents the scoreboard (scores) of a player, it is designed to be attached to the {@link main.java.Player} class
+ */
 public class Scores {
 	private final static int AVAILABLE = -1;  // #NoMagicNumbers
 
