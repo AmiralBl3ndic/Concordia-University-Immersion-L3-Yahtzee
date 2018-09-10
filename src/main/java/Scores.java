@@ -588,17 +588,25 @@ public class Scores {
 	
 	
 	
-	public int[] getScores () {
-		int[] scores = new int[combinations.length + simples.length];
+	public String[] getScores () {
+		String[] scores = new String[combinations.length + simples.length];
 		int index = 0;
 		
 		
 		for (int simple : simples) {
-			scores[index++] = simple;
+			if (simple == AVAILABLE) {
+				scores[index++] = "  ";
+			} else {
+				scores[index++] = "" + simple;
+			}
 		}
 		
 		for (int combination : combinations) {
-			scores[index++] = combination;
+			if (combination == AVAILABLE) {
+				scores[index++] = "  ";
+			} else {
+				scores[index++] = "" + combination;
+			}
 		}
 		
 		return scores;
