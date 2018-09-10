@@ -120,8 +120,7 @@ public class App {
 		}
 
 		for (Player player : players){
-			Logger.log("Here the total score of " + player.getName() + " : " );
-			//TODO : put the score method in the player class
+			Logger.log("Here the total score of " + player.getName() + " : " + player.totalScore());
 		}
 
 	}
