@@ -507,7 +507,11 @@ public class Player {
 
 
 	}
-
+	
+	/**
+	 * Compute the total score of the instance
+	 * @return Total score of the instance
+	 */
 	public int totalScore(){
 		return _scores.total();
 	}
