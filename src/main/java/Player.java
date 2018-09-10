@@ -504,6 +504,11 @@ public class Player {
 
 		Logger.log("Your score for now : ");
 		_scores.displayScore();
+
+
 	}
 
+	public int totalScore(){
+		return _scores.total();
+	}
 }
