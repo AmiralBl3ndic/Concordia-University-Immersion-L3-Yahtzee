@@ -466,7 +466,9 @@ public class Player {
 	}
 	
 	
-	
+	/**
+	 * Make the instance play its turn (roll dices up to 3 times and select where to store the result)
+	 */
 	public void play () {
 		final int MAXIMUM_ROLLS = 3;
 		final int STOP_ROLL = 0;
