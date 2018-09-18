@@ -176,6 +176,7 @@ public class Scores {
 		return 0;
 	}
 
+	
 	/**
 	 * Returns the number of points for a Four-Of-A-Kind with the passed dices
 	 * @param faces Number of iterations of each dice face
@@ -189,6 +190,7 @@ public class Scores {
 		return 0;
 	}
 
+	
 	/**
 	 * Returns the number of points for a Chance with the passed dices
 	 * @param faces Number of iterations of each dice face
