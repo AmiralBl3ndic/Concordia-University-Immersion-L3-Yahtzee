@@ -45,20 +45,96 @@ public class Scores {
 			"Yahtzee",
 			"Chance"
 	};
-
-
+	
+	
+	/**
+	 * Getter for the score at the {@code Aces}
+	 * @return Score at the {@code Aces}
+	 */
 	public int getAces() { return simples[0]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Twos}
+	 * @return Score at the {@code Twos}
+	 */
 	public int getTwos() { return simples[1]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Threes}
+	 * @return Score at the {@code Threes}
+	 */
 	public int getThrees() { return simples[2]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Fours}
+	 * @return Score at the {@code Fours}
+	 */
 	public int getFours() { return simples[3]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Fives}
+	 * @return Score at the {@code Fives}
+	 */
 	public int getFives() { return simples[4]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Sixes}
+	 * @return Score at the {@code Sixes}
+	 */
 	public int getSixes() { return simples[5]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Three Of A Kind}
+	 * @return Score at the {@code Three Of A Kind}
+	 */
 	public int getThreeOfAKind() { return combinations[0]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Full House}
+	 * @return Score at the {@code Full House}
+	 */
 	public int getFullHouse() { return combinations[1]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Four Of A Kind}
+	 * @return Score at the {@code Four Of A Kind}
+	 */
 	public int getFourOfAKind() { return combinations[2]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Small Straight}
+	 * @return Score at the {@code Small Straight}
+	 */
 	public int getSmallStraight() { return combinations[3]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Large Straight}
+	 * @return Score at the {@code Large Straight}
+	 */
 	public int getLargeStraight() { return combinations[4]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Yahtzee}
+	 * @return Score at the {@code Yahtzee}
+	 */
 	public int getYahtzee() { return combinations[5]; }
+	
+	
+	/**
+	 * Getter for the score at the {@code Chance}
+	 * @return Score at the {@code Chance}
+	 */
 	public int getChance() { return combinations[6]; }
 
 
