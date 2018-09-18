@@ -62,7 +62,7 @@ public class App {
 				default:
 					Logger.log("Wow! You tricked the program! You are not supposed to read this since this line is theoretically unreachable");
 			}
-		} while (user_choices != QUIT);
+		} while (true);
 	}
 	
 	
