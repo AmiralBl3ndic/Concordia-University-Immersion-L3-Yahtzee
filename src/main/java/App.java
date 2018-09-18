@@ -69,6 +69,9 @@ public class App {
 	}
 	
 	
+	/**
+	 * Display the rules of the game
+	 */
 	static void diplayRules() {
 		System.out.println("\n\n========== Yahtzee Rules ==========\n");
 		System.out.println("Yahtzee can be played in solitary or by a group. The game consists of 13 rounds. \n" +
