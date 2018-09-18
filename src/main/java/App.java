@@ -19,6 +19,9 @@ public class App {
 	}
 	
 	
+	/**
+	 * Display the start menu of the game from which the player can choose to start a game, to see the rules or to quit
+	 */
 	public static void startMenu() {
 		final int CHOICE_UNSET = -1;
 		final int QUIT = 0, PLAY = 1, RULES = 2;
