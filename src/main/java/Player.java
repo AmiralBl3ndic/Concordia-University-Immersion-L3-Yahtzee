@@ -28,7 +28,7 @@ public class Player {
 	
 	private String name;
 	
-	private Dice[] dices =  {
+	private Dice[] dices =  {  // "Hand" of the player
 			new Dice(),
 			new Dice(),
 			new Dice(),
@@ -286,7 +286,6 @@ public class Player {
 	}
 	
 	
-	
 	/**
 	 * Displays the (un)locked dices
 	 * Advertises the user that these are the (un)locked dices by displaying a short message before display
@@ -380,6 +379,7 @@ public class Player {
 		displayDices(true);
 	}
 
+	
 	/**
 	 * Display all the dices locked and unlocked on the same line
 	 */
@@ -409,8 +409,6 @@ public class Player {
 
 		System.out.println("\n");
 	}
-
-
 	
 	
 	/**
@@ -509,6 +507,7 @@ public class Player {
 
 
 	}
+	
 	
 	/**
 	 * Compute the total score of the instance
