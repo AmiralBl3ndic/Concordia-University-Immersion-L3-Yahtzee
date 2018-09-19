@@ -26,7 +26,7 @@ public class Scores {
 
 
 	private int[] simples = {AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE};
-	public final String[] simpleNames = {
+	public static final String[] simpleNames = {
 			"Ones",
 			"Twos",
 			"Threes",
@@ -36,7 +36,7 @@ public class Scores {
 	};
 
 	private int[] combinations = {AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE};
-	public final String[] combinationsNames = {
+	public static final String[] combinationsNames = {
 			"Three-of-a-kind",
 			"Full-house",
 			"Four-of-a-kind",
