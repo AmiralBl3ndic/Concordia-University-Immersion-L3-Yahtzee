@@ -516,4 +516,79 @@ public class Player {
 	public int totalScore(){
 		return _scores.total();
 	}
+	
+	
+	/**
+	 * Display the scoreboard of all players
+	 */
+	public static void displayFinalScoreboard () {
+		int i = 0;
+		
+		// Pre-display names (line just above)
+		System.out.printf("                      ╔");
+		for (i = 0; i < _players.size() - 1; i++) {
+			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╦", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+			System.out.print(str);
+		}
+		System.out.print(String.format("%" + (_players.get(_players.size() - 1).name.length() + 4) + "s╗%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
+		
+		// Display name of the players
+		System.out.printf("                      ║");
+		for (Player player : _players) {
+			System.out.printf("  %s  ║", player.name);
+		}
+		System.out.printf("%n");
+		
+		// Displaying a fancy upper board line (post display names, line just below)
+		System.out.printf("╔═════════════════════╬");
+		for (i = 0; i < _players.size() - 1; i++) {
+			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╬", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+			System.out.print(str);
+		}
+		System.out.print(String.format("    %" + (_players.get(_players.size() - 1).name.length()) + "s╣%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
+		
+		
+		
+		// Exploring the upper part of the board
+		for (i = 0; i < Scores.simpleNames.length; i++) {
+			System.out.printf("║   %15s   ║", Scores.simpleNames[i]);
+			
+			// Display the score of each player
+			for (Player player : _players) {
+				System.out.printf("  %" + player.name.length() + "s  ║", player._scores.getScores()[i]);
+			}
+			
+			System.out.printf("%n");
+		}
+		
+		// TODO: total of the upper part of the board
+		
+		// Exploring the lower part of the board
+		for (int j = 0; j < Scores.combinationsNames.length; j++) {
+			System.out.printf("║   %15s   ║", Scores.combinationsNames[j]);
+			
+			// Display the score of each player
+			for (Player player : _players) {
+				System.out.printf("  %" + player.name.length() + "s  ║", player._scores.getScores()[i]);
+			}
+			
+			i++;
+			
+			System.out.printf("%n");
+		}
+		
+		// TODO: total of the lower part of the board
+		
+		System.out.printf("║   %15s   ║", "Total");
+		for (Player player : _players) {
+			System.out.printf("  %" + player.name.length() + "d  ║", player._scores.total());
+		}
+		
+		// Displaying the last line of the table
+		System.out.printf("%n╚═════════════════════╩");
+		for (int i1 = 0; i1 < _players.size() - 1; i1++) {
+			System.out.print(String.format("%" + (_players.get(i1).name.length() + 4) + "s╩", "").replaceAll("[a-zA-Z ]", "═"));
+		}
+		System.out.print(String.format("%" + (_players.get(_players.size() - 1).name.length() + 4) + "s╝%n%n%n", "").replaceAll("[a-zA-Z ]", "═"));
+	}
 }
