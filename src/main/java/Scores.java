@@ -657,31 +657,24 @@ public class Scores {
 	 * Displays the scoreboard of a player
 	 */
 	public void displayScore() {
-		final int MAX_SIMPLE = simples.length;
-		final int MAX_COMBINAISON = combinations.length;
-
-		int indexSimple = 1;
-		int indexCombinaison = 7;
-		for (int index = 0; index < MAX_SIMPLE; index++) {
-			if (simples[index] == AVAILABLE){
-				Logger.log(indexSimple + ". " + simpleNames[index]);
-			}
-			else{
-				Logger.log(indexSimple + ". " + simpleNames[index] + "                      " + simples[index]);
-			}
-			indexSimple++;
+		// Displaying the upper part of the scoreboard
+		System.out.println("╔═══════════════════════════════╗");
+		System.out.println("║           UPPER PART          ║");
+		System.out.println("╠═══════════════════════════════╣");
+		for (int i = 0; i < simples.length; i++) {
+			System.out.printf("║  %2d. %15s  ║  %3s  ║%n", (i+1), simpleNames[i], simples[i] == AVAILABLE ? "•" : simples[i]);
 		}
-
-		for (int index = 0; index < MAX_COMBINAISON; index++) {
-			if (combinations[index] == AVAILABLE){
-				Logger.log(indexCombinaison + ". " + combinationsNames[index] );
-			}
-			else {
-				Logger.log(indexCombinaison + ". " + combinationsNames[index] + "                  " + combinations[index]);
-			}
-			indexCombinaison++;
+		System.out.println("╚═══════════════════════════════╝\n");
+		
+		
+		// Displaying the lower part of the scoreboard
+		System.out.println("╔═══════════════════════════════╗");
+		System.out.println("║           LOWER PART          ║");
+		System.out.println("╠═══════════════════════════════╣");
+		for (int i = 0; i < simples.length; i++) {
+			System.out.printf("║  %2d. %15s  ║  %3s  ║%n", (i+1), combinationsNames[i], combinations[i] == AVAILABLE ? "•" : combinations[i]);
 		}
-
+		System.out.println("╚═══════════════════════════════╝\n");
 	}
 	
 	
