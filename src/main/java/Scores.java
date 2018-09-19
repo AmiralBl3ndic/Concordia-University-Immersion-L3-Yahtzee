@@ -691,18 +691,20 @@ public class Scores {
 		String[] scores = new String[combinations.length + simples.length];
 		int index = 0;
 		
-		
+		// Upper part of the board (simples)
 		for (int simple : simples) {
 			if (simple == AVAILABLE) {
-				scores[index++] = "  ";
+				scores[index++] = "•";
 			} else {
 				scores[index++] = "" + simple;
 			}
 		}
 		
+		
+		// Lower part of the board (combinations)
 		for (int combination : combinations) {
 			if (combination == AVAILABLE) {
-				scores[index++] = "  ";
+				scores[index++] = "•";
 			} else {
 				scores[index++] = "" + combination;
 			}
