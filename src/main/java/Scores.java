@@ -470,12 +470,21 @@ public class Scores {
 
 		int sum = 0;
 
-		sum += IntStream.of(simples).sum();
+		for (int score : simples) {
+			if (score > 0) {
+				sum += score;
+			}
+		}
+		
 		if (sum >= MINIMUM_UPPER_SCORE_FOR_BONUS)
 			sum += UPPER_BONUS;
-
-		sum += IntStream.of(combinations).sum();
-
+		
+		for (int score : combinations) {
+			if (score > 0) {
+				sum += score;
+			}
+		}
+		
 		return sum;
 	}
 	
