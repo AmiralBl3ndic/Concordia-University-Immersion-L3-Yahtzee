@@ -124,6 +124,8 @@ public class App {
 				Logger.log("\n\n=======================================\n\n\n");
 				
 				player.resetDices();
+				
+				Player.displayFinalScoreboard();
 			}
 			
 			
