@@ -434,24 +434,29 @@ public class Scores {
 		int choiceIndex = START_INDEX;
 
 		Logger.log("\n\nAvailable storage:\n");
-
-		// Iterating through the "simple" combinations
-		for (int i = 0; i < simples.length; i++) {
-			if (simples[i] == AVAILABLE) {  // Checking if combination is available
-				Logger.log(choiceIndex++ + ". " + simpleNames[i]);
-			} else {
-				choiceIndex++;
+		
+		System.out.println("╔════════════════════════════╗");
+		System.out.println("║      AVAILABLE STORAGE     ║");
+		System.out.println("╠════════════════════════════╣");
+		
+		int i = 0;
+		
+		// Exploring the upper part of the scoreboard to find available choices
+		for (i = 0; i < simples.length; i++) {
+			if (simples[i] == AVAILABLE) {  // If the current choice is available
+				System.out.printf("║  %2d. %15s ║%n", (i+1), simpleNames[i]);
 			}
 		}
-
-		// Iterating through the "complex" combinations
-		for (int i = 0; i < combinations.length; i++) {
-			if (combinations[i] == AVAILABLE) {  // Checking if combination is available
-				Logger.log(choiceIndex++ + ". " + combinationsNames[i]);
-			} else {
-				choiceIndex++;
+		
+		
+		// Exploring the lower part of the scoreboard to find available choices
+		for (int j = 0; j < combinations.length; j++) {
+			if (combinations[j] == AVAILABLE) {  // If the current choice is available
+				System.out.printf("║  %2d. %15s ║%n", (i + j +1), combinationsNames[j]);
 			}
 		}
+		
+		System.out.println("╚════════════════════════════╝");
 	}
 
 
