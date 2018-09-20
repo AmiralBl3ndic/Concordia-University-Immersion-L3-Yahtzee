@@ -561,7 +561,39 @@ public class Player {
 			System.out.printf("%n");
 		}
 		
-		// TODO: total of the upper part of the board
+		// Displaying separator line
+		System.out.print(String.format("╠%21s╬", "").replaceAll("[a-zA-Z ]", "═"));
+		for (i = 0; i < _players.size() - 1; i++) {
+			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╬", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+			System.out.print(str);
+		}
+		System.out.print(String.format("    %" + (_players.get(_players.size() - 1).name.length()) + "s╣%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
+		
+		
+		// Displaying the bonus of the upper part for each player
+		System.out.printf("║   %15s   ║", "Upper Bonus");
+		// Display the score of each player
+		for (Player player : _players) {
+			System.out.printf("  %" + player.name.length() + "s  ║", player._scores.getUpperBonus());
+		}
+		System.out.printf("%n");
+		
+		
+		// Displaying the upper sum for each player
+		System.out.printf("║   %15s   ║", "Upper sum");
+		for (Player player : _players) {
+			System.out.printf("  %" + player.name.length() + "s  ║", player._scores.getUpperSum());
+		}
+		System.out.printf("%n");
+		
+		// Displaying separator line
+		System.out.print(String.format("╠%21s╬", "").replaceAll("[a-zA-Z ]", "═"));
+		for (i = 0; i < _players.size() - 1; i++) {
+			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╬", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+			System.out.print(str);
+		}
+		System.out.print(String.format("    %" + (_players.get(_players.size() - 1).name.length()) + "s╣%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
+		
 		
 		// Exploring the lower part of the board
 		for (int j = 0; j < Scores.combinationsNames.length; j++) {
@@ -577,9 +609,33 @@ public class Player {
 			System.out.printf("%n");
 		}
 		
-		// TODO: total of the lower part of the board
 		
-		System.out.printf("║   %15s   ║", "Total");
+		// Displaying separator line
+		System.out.print(String.format("╠%21s╬", "").replaceAll("[a-zA-Z ]", "═"));
+		for (i = 0; i < _players.size() - 1; i++) {
+			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╬", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+			System.out.print(str);
+		}
+		System.out.print(String.format("    %" + (_players.get(_players.size() - 1).name.length()) + "s╣%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
+		
+		
+		// Displaying the upper total for each player
+		System.out.printf("║   %15s   ║", "Upper total");
+		for (Player player : _players) {
+			System.out.printf("  %" + player.name.length() + "s  ║", player._scores.getUpperTotal());
+		}
+		System.out.printf("%n");
+		
+		
+		// Displaying the lower total for each player
+		System.out.printf("║   %15s   ║", "Lower total");
+		for (Player player : _players) {
+			System.out.printf("  %" + player.name.length() + "s  ║", player._scores.getLowerTotal());
+		}
+		System.out.printf("%n");
+		
+		
+		System.out.printf("║   %15s   ║", "Overall total");
 		for (Player player : _players) {
 			System.out.printf("  %" + player.name.length() + "d  ║", player._scores.total());
 		}
