@@ -23,7 +23,9 @@ public class Scores {
 	private static int FULL_HOUSE_POINTS = 20;
 	private static int SMALL_STRAIGHT_POINTS = 30;
 	private static int LARGE_STRAIGHT_POINTS = 40;
-
+	
+	private static final int MINIMUM_UPPER_SCORE_FOR_BONUS = 63;
+	private static final int UPPER_BONUS = 37;
 
 	private int[] simples = {AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE};
 	public static final String[] simpleNames = {
@@ -476,15 +478,22 @@ public class Scores {
 		
 		return sum;
 	}
-
+	
+	
+	/**
+	 * Get the value of the {@code bonus} of the upper part of the board
+	 * @return Value of the {@code bonus} of the upper part of the board
+	 */
+	public int getUpperBonus () {
+		return getUpperSum() >= MINIMUM_UPPER_SCORE_FOR_BONUS ? UPPER_BONUS : 0;
+	}
+	
+	
 	/**
 	 * Computes the total number of points for the board
 	 * @return The number of points associated to the instance
 	 */
 	public int total() {
-		final int MINIMUM_UPPER_SCORE_FOR_BONUS = 63;
-		final int UPPER_BONUS = 37;
-
 		int sum = 0;
 
 		for (int score : simples) {
