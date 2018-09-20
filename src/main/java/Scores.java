@@ -490,6 +490,15 @@ public class Scores {
 	
 	
 	/**
+	 * Get the total of the upper part of the scoreboard
+	 * @return Value of the total (bonus included) of the upper part of the scoreboard
+	 */
+	public int getUpperTotal () {
+		return getUpperSum() + getUpperBonus();
+	}
+	
+	
+	/**
 	 * Computes the total number of points for the board
 	 * @return The number of points associated to the instance
 	 */
