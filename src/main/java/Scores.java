@@ -499,6 +499,23 @@ public class Scores {
 	
 	
 	/**
+	 * Get the total value of the lower part of the scoreboard
+	 * @return Value of the total of the lower part of the scoreboard
+	 */
+	public int getLowerTotal () {
+		int sum = 0;
+		
+		for (int score : combinations) {
+			if (score != AVAILABLE) {  // Counting the score only if it is not unset
+				sum += score;
+			}
+		}
+		
+		return sum;
+	}
+	
+	
+	/**
 	 * Computes the total number of points for the board
 	 * @return The number of points associated to the instance
 	 */
