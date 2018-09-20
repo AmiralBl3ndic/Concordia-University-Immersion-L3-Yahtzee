@@ -520,24 +520,7 @@ public class Scores {
 	 * @return The number of points associated to the instance
 	 */
 	public int total() {
-		int sum = 0;
-
-		for (int score : simples) {
-			if (score > 0) {
-				sum += score;
-			}
-		}
-		
-		if (sum >= MINIMUM_UPPER_SCORE_FOR_BONUS)
-			sum += UPPER_BONUS;
-		
-		for (int score : combinations) {
-			if (score > 0) {
-				sum += score;
-			}
-		}
-		
-		return sum;
+		return getUpperTotal() + getLowerTotal();
 	}
 	
 	
