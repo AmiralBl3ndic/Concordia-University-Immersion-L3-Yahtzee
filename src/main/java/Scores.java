@@ -458,7 +458,24 @@ public class Scores {
 		
 		System.out.println("╚════════════════════════════╝");
 	}
-
+	
+	
+	/**
+	 * Get the sum of the scores of the upper part of the scoreboard
+	 * @return Sum of the scores of the upper part of the scoreboard
+	 */
+	public int getUpperSum () {
+		int sum = 0;
+		
+		// Exploring all the scores of the upper part of the board
+		for (int score : simples) {
+			if (score != AVAILABLE) {  // If the score is unset for now, we do not count it
+				sum += score;
+			}
+		}
+		
+		return sum;
+	}
 
 	/**
 	 * Computes the total number of points for the board
