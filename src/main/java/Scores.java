@@ -275,17 +275,17 @@ public class Scores {
 		}
 
 		// Check for 1, 2, 3, 4
-		if (faces[0] == 1 && faces[1] == 1) {
+		if (faces[0] >= 1 && faces[1] >= 1) {
 			return true;
 		}
 
 		// Check for 2, 3, 4, 5
-		if (faces[1] == 1 && faces[4] == 1) {
+		if (faces[1] >= 1 && faces[4] >= 1) {
 			return true;
 		}
 
 		// Check for 3, 4, 5, 6
-		return (faces[4] == 1 && faces[5] == 1);
+		return (faces[4] >= 1 && faces[5] >= 1);
 	}
 
 
