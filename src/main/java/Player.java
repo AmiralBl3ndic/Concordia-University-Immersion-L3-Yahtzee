@@ -563,8 +563,8 @@ public class Player {
 		
 		// Displaying separator line
 		System.out.print(String.format("╠%21s╬", "").replaceAll("[a-zA-Z ]", "═"));
-		for (i = 0; i < _players.size() - 1; i++) {
-			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╬", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+		for (int j = 0; j < _players.size() - 1; j++) {
+			String str = String.format("%" + (_players.get(j).name.length() + 4) + "s╬", _players.get(j).name).replaceAll("[a-zA-Z ]", "═");
 			System.out.print(str);
 		}
 		System.out.print(String.format("    %" + (_players.get(_players.size() - 1).name.length()) + "s╣%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
@@ -588,8 +588,8 @@ public class Player {
 		
 		// Displaying separator line
 		System.out.print(String.format("╠%21s╬", "").replaceAll("[a-zA-Z ]", "═"));
-		for (i = 0; i < _players.size() - 1; i++) {
-			String str = String.format("%" + (_players.get(i).name.length() + 4) + "s╬", _players.get(i).name).replaceAll("[a-zA-Z ]", "═");
+		for (int j = 0; j < _players.size() - 1; j++) {
+			String str = String.format("%" + (_players.get(j).name.length() + 4) + "s╬", _players.get(j).name).replaceAll("[a-zA-Z ]", "═");
 			System.out.print(str);
 		}
 		System.out.print(String.format("    %" + (_players.get(_players.size() - 1).name.length()) + "s╣%n", _players.get(_players.size() - 1).name).replaceAll("[a-zA-Z ]", "═"));
